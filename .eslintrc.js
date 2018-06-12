@@ -35,7 +35,7 @@ module.exports = {
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2015
+        ecmaVersion: 2017
       },
       env: {
         browser: false,
