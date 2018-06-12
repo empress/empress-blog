@@ -28,28 +28,11 @@ export default HeadData.extend({
     return config['ember-meta'].description;
   }),
 
-  url: computed('routeName', function() {
-    let url = config['ember-meta'].url;
-    const slug = this.get('currentRouteModel.id');
-    if (slug) {
-      url = `${url}${slug}/`;
-    }
-    return url;
+  slug: computed('routeName', function() {
+    return this.get('currentRouteModel.id');
   }),
 
   categories: computed('routeName', function() {
     return this.get('currentRouteModel.tags');
-  }),
-
-  date: computed('routeName', function() {
-    return this.get('currentRouteModel.date');
-  }),
-
-  canonical: computed('routeName', function() {
-    return this.get('currentRouteModel.canonical');
-  }),
-
-  title: computed('routeName', function() {
-    return this.getWithDefault('currentRouteModel.title', config['ember-meta'].title);
   }),
 });
