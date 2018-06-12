@@ -5,8 +5,6 @@ imageMeta:
   attribution:
   attributionLink:
 featured: true
-meta_title: null
-meta_description: null
 author: <%= author %>
 date: <%= date %>
 tags:
