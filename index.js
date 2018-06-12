@@ -81,6 +81,35 @@ module.exports = {
     });
   },
 
+  config(env, config) {
+    let blog = config.blog || {};
+
+    let emberMetaConfig = {
+      description: blog.description,
+      imgSrc: blog.rssLogo || blog.logo,
+      siteName: blog.title,
+      title: blog.title,
+      twitterUsername: blog.twitter,
+
+    }
+
+    if(blog.host) {
+      if(blog.host.endsWith('/')) {
+        emberMetaConfig.url = `${blog.host}/`
+      } else {
+        emberMetaConfig.url = blog.host;
+      }
+    }
+
+    return {
+      'ember-meta': emberMetaConfig,
+      blog: {},
+      fastboot: {
+        hostWhitelist: [/localhost:\d+/]
+      },
+    }
+  },
+
   // isDevelopingAddon() {
   //   return true;
   // },
