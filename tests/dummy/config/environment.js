@@ -20,7 +20,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    blog: {
+      title: "ember ghost",
+      description: "Thoughts, stories and ideas.",
+      coverImage: "/images/blog-cover.jpg",
+      navigation: [
+        { label: 'Home', route: 'index' },
+        { label: 'Built by Stone Circle', route: 'page', id: 'stone-circle' }
+      ]
+    },
   };
 
   if (environment === 'development') {

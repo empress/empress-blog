@@ -34,42 +34,8 @@ const attributes = [
 
 const references = ['author'];
 
-function makeContentTree(contentFolder) {
-  return new StaticSiteJson(contentFolder, {
-    attributes,
-    references,
-    contentFolder,
-    collections: [{
-      src: contentFolder,
-      output: `${contentFolder}.json`,
-    }],
-  });
-}
-
-const contentTree = makeContentTree('content');
-const pageTree = makeContentTree('page');
-
-const authorTree = new StaticSiteJson(`author`, {
-  contentFolder: 'author',
-  attributes: [
-    'name',
-    'image',
-    'coverImage',
-    'coverMeta',
-    'bio',
-    'website',
-    'twitter',
-    'facebook',
-    'location',
-  ],
-  collections: [{
-    src: 'author',
-    output: 'author.json',
-  }]
-});
-
 module.exports = {
-  name: 'ember-casper-template',
+  name: 'ember-ghost',
 
   included(app) {
     this._super.included.apply(this, arguments)
@@ -115,6 +81,50 @@ module.exports = {
   // },
 
   treeForPublic() {
+    let appPrefix = join(this.project.configPath(), '../..');
+
+    const contentTree = new StaticSiteJson(join(appPrefix, 'content'), {
+      type: 'content',
+      attributes,
+      references,
+      contentFolder: 'content',
+      collections: [{
+        src: join(appPrefix, 'content'),
+        output: `content.json`,
+      }],
+    });
+
+    const pageTree = new StaticSiteJson(join(appPrefix, 'page'), {
+      type: 'page',
+      attributes,
+      references,
+      contentFolder: 'page',
+      collections: [{
+        src: join(appPrefix, 'page'),
+        output: 'page.json',
+      }],
+    });
+
+    const authorTree = new StaticSiteJson(join(appPrefix, 'author'), {
+      type: 'author',
+      contentFolder: 'author',
+      attributes: [
+        'name',
+        'image',
+        'coverImage',
+        'coverMeta',
+        'bio',
+        'website',
+        'twitter',
+        'facebook',
+        'location',
+      ],
+      collections: [{
+        src: join(appPrefix, 'author'),
+        output: 'author.json',
+      }]
+    });
+
     const trees = [contentTree, pageTree, authorTree];
 
     const config = this.project.config(process.env.EMBER_ENV || 'development');
@@ -144,14 +154,16 @@ module.exports = {
   },
 
   urlsForPrember() {
-    const content = walkSync('content', {
+    let appPrefix = join(this.project.configPath(), '../..');
+
+    const content = walkSync(join(appPrefix, 'content'), {
       globs: ['*.md'],
     });
 
     const contentYamls = _.chain(content)
       .map(path => ({
         path,
-        yaml: yamlFront.loadFront(readFileSync(join('content', path)))
+        yaml: yamlFront.loadFront(readFileSync(join(appPrefix, 'content', path)))
       }))
       .value();
 
@@ -166,7 +178,7 @@ module.exports = {
 
     const contentUrls = content.map(file => file.replace(/\.md$/, ''));
 
-    const authorUrls = walkSync('author', {
+    const authorUrls = walkSync(join(appPrefix, 'author'), {
       globs: ['*.md'],
     }).map(file => file.replace(/\.md$/, '')).map(file => `/author/${file}`);
 
