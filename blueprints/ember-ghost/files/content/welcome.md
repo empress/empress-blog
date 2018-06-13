@@ -1,30 +1,28 @@
 ---
-title: Welcome to Ghost
+title: Welcome to Ember Ghost
 image: /images/welcome.jpg
 imageMeta:
   attribution:
   attributionLink:
 featured: true
 author: ghost
-date: Tue Jun 12 2018 17:51:59 GMT+0100 (IST)
+date: Tue Jun 12 2018 18:59:59 GMT+0100 (IST)
 tags:
   - getting-started
 ---
 
-Hey! Welcome to Ghost, it's great to have you :)
+Hey! Welcome to Ember Ghost, it's great to have you :)
 
 We know that first impressions are important, so we've populated your new site with some initial **Getting Started** posts that will help you get familiar with everything in no time. This is the first one!
 
 
 ### There are a few things that you should know up-front:
 
-1. Ghost is designed for ambitious, professional publishers who want to actively build a business around their content. That's who it works best for. If you're using Ghost for some other purpose, that's fine too - but it might not be the best choice for you.
+1. Ember Ghost is designed to be a static site version of the amazing [Ghost blogging platform](https://ghost.org/)
 
-2. The entire platform can be modified and customized to suit your needs, which is very powerful, but doing so **does** require some knowledge of code. Ghost is not necessarily a good platform for beginners or people who just want a simple personal blog.
+1. Ember Ghost is designed for developers who know how to deploy a satic site (folder of html files and assets) using something like S3 or even just on NGINX.
 
-3. For the best experience we recommend downloading the [Ghost Desktop App](https://ghost.org/downloads/) for your computer, which is the best way to access your Ghost site on a desktop device.
-
-Ghost is made by an independent non-profit organisation called the Ghost Foundation. We are 100% self funded by revenue from our [Ghost(Pro)](https://ghost.org/pricing) service, and every penny we make is re-invested into funding further development of free, open source technology for modern journalism.
+1. If you are slightly less tech savvy or if you want to manage your blog outside of just a set of files in a git repo we highly recommend signing up for [Ghost](https://ghost.org/pricing/)
 
 The main thing you'll want to read about next is probably: [the Ghost editor](/the-editor/).
 

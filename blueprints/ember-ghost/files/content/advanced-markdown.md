@@ -6,24 +6,22 @@ imageMeta:
   attributionLink:
 featured: true
 author: ghost
-date: Tue Jun 12 2018 18:01:55 GMT+0100 (IST)
+date: Tue Jun 12 2018 17:50:55 GMT+0100 (IST)
 tags:
   - getting-started
 ---
 
-There are lots of powerful things you can do with the Ghost editor
+There are lots of powerful things you can do with the Markdown
 
-If you've gotten pretty comfortable with [all the basics](/the-editor/) of writing in Ghost, then you may enjoy some more advanced tips about the types of things you can do with Markdown!
+If you've gotten pretty comfortable with [all the basics](/the-editor/) of writing in Markdown, then you may enjoy some more advanced tips about the types of things you can do!
 
-As with the last post about the editor, you'll want to be actually editing this post as you read it so that you can see all the Markdown code we're using.
+As with the last post, you'll want to be looking at the source [directly on github](https://github.com/stonecircle/ember-ghost/blob/master/blueprints/ember-ghost/files/content/advanced-markdown.md) or in your local editor as you read it so that you can see all the Markdown code we're using.
 
 
 ## Special formatting
 
 As well as bold and italics, you can also use some other special formatting in Markdown when the need arises, for example:
 
-+ ~~strike through~~
-+ ==highlight==
 + \*escaped characters\*
 
 
@@ -36,8 +34,6 @@ There are two types of code elements which can be inserted in Markdown, the firs
     text-decoration: underline;
 }
 ```
-
-If you want to get really fancy, you can even add syntax highlighting using [Prism.js](http://prismjs.com/).
 
 
 ## Full bleed images
@@ -65,16 +61,6 @@ This creates full-bleed images in the Casper theme, which stretch beyond their u
 [2]: https://en.wikipedia.org/wiki/Dog "Wikipedia: Dog"
 
 Another way to insert links in markdown is using reference lists. You might want to use this style of linking to cite reference material in a Wikipedia-style. All of the links are listed at the end of the document, so you can maintain full separation between content and its source or reference.
-
-
-## Creating footnotes
-
-The quick brown fox[^1] jumped over the lazy dog[^2].
-
-[^1]: Foxes are red
-[^2]: Dogs are usually not red
-
-Footnotes are a great way to add additional contextual details when appropriate. Ghost will automatically add footnote content to the very end of your post.
 
 
 ## Full HTML

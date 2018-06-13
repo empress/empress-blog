@@ -5,7 +5,7 @@ export default DS.Model.extend({
   image: DS.attr('string'),
   coverImage: DS.attr('string'),
   coverMeta: DS.attr(),
-  bio: DS.attr('string'),
+  content: DS.attr('string'),
   website: DS.attr('string'),
   twitter: DS.attr('string'),
   facebook: DS.attr('string'),

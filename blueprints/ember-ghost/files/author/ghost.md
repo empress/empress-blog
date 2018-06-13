@@ -1,11 +1,11 @@
 ---
 name: Ghost
 id: ghost
-image:
+image: /images/ghost-icon.png
 cover:
-bio:
-website:
+website: https://github.com/stonecircle/ember-ghost
 twitter:
 facebook:
 location:
 ---
+You can delete this user to remove all the welcome posts

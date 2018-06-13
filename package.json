@@ -27,6 +27,7 @@
     "downsize-cjs": "^0.1.1",
     "ember-body-class": "^1.0.1",
     "ember-cli-babel": "^6.6.0",
+    "ember-cli-showdown": "^4.4.2",
     "ember-lodash": "^4.18.0",
     "ember-meta": "^0.3.0",
     "lodash": "^4.17.10",
