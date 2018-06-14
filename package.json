@@ -1,6 +1,6 @@
 {
   "name": "ember-ghost",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Fully-functional, SEO friendly static site implementation of a blog system built on Ember.",
   "keywords": [
     "ember-addon",
@@ -10,9 +10,9 @@
   "repository": "https://github.com/stonecircle/ember-ghost",
   "license": "MIT",
   "author": {
-    "name" : "Chris Manson",
-    "email" : "chris@stonecircle.io",
-    "url" : "https://stonecircle.io"
+    "name": "Chris Manson",
+    "email": "chris@stonecircle.io",
+    "url": "https://stonecircle.io"
   },
   "directories": {
     "doc": "doc",
