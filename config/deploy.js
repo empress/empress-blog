@@ -3,7 +3,8 @@
 let credentials;
 
 try {
-  credentials = require('./credentials.json');
+  // eslint-disable-next-line node/no-missing-require
+  credentials = require('./credentialsd.json');
 } catch (e) {
   credentials = {};
 }
