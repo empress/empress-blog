@@ -1,14 +1,19 @@
 {
   "name": "ember-ghost",
   "version": "1.0.6",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Fully-functional, SEO friendly static site implementation of a blog system built on Ember.",
   "keywords": [
     "ember-addon",
+    "ember-ghost",
     "prember-plugin"
   ],
-  "repository": "",
+  "repository": "https://github.com/stonecircle/ember-ghost",
   "license": "MIT",
-  "author": "",
+  "author": {
+    "name" : "Chris Manson",
+    "email" : "chris@stonecircle.io",
+    "url" : "https://stonecircle.io"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
