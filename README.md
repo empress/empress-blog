@@ -2,7 +2,7 @@ ember-ghost
 ==============================================================================
 
 This project is designed to be a fully-functional, static site implementation of a blog system that is mostly compatible with [Ghost](https://ghost.org/) and is built on EmberJS with fully working out of the
-box SEO friendly output. It supports being hosted on Github Pages, AWS S3 or any other static site
+box SEO friendly output. It supports being hosted on AWS S3 or any other static site
 hosting solution.
 
 This system supports the use of shallow forks of Ghost themes and currently supports
