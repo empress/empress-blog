@@ -170,8 +170,9 @@ module.exports = {
     const staticUrls = ['/'];
 
     const tagUrls = _.chain(contentYamls)
-      .map(file => file.tags)
+      .map(file => file.yaml.tags)
       .flatten()
+      .compact()
       .uniq()
       .map(tag => `/tag/${tag}`)
       .value();

@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { hash } from 'rsvp';
-import { getWithDefault } from '@ember/object';
+import { get } from '@ember/object';
 
 export default Route.extend({
   model(params) {
@@ -8,7 +8,11 @@ export default Route.extend({
       tag: params.id,
       posts: this.store.query('content', {
         path: 'content',
-      }).then((posts) => posts.filter((post) => getWithDefault(post, 'tags', []).includes(params.id)))
+      }).then((posts) => posts.filter((post) => {
+        if (get(post, 'tags')) {
+          return get(post, 'tags').includes(params.id);
+        }
+      }))
     })
   }
 });
