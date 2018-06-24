@@ -140,7 +140,7 @@ module.exports = {
         this.ui.writeWarnLine(`Host is not configured so no RSS feed will be generated
 
           If you want know how to configure the host and other parameters check out our documentation:
-          https://github.com/stonecircle/ember-casper-template`);
+          https://github.com/stonecircle/ember-ghost#configuring-your-host--enabling-rss`);
       }
     }
 
