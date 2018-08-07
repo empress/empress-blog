@@ -1,6 +1,6 @@
 {
   "name": "ember-ghost",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Fully-functional, SEO friendly static site implementation of a blog system built on Ember.",
   "keywords": [
     "ember-addon",
