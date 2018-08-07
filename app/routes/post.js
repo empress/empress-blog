@@ -15,7 +15,9 @@ export default Route.extend({
         path: 'content',
       })
     }).then((result) => {
-      return this.store.findRecord('author', get(result, 'post.author.id')).then(() => result);
+      return get(result, 'post.author')
+        .then((author) => this.store.findRecord('author', author.id))
+        .then(() => result);
     })
   },
 });
