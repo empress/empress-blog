@@ -36,6 +36,12 @@ ember install ember-ghost ember-ghost-casper-template
 
 It will ask you if you want to update the `index.html` file and you should say yes 👍
 
+To build the static output directory, run the **standard** build process for a production Ember application:
+```
+ember build -e production
+```
+This will generate a fully static output of your site in the `dist` folder.
+
 If you want to see the blog system running on your local machine just run `npm start` and you will
 be able to navigate to  [http://localhost:4200](http://localhost:4200) to see the blog in action.
 
