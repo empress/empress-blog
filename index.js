@@ -1,11 +1,5 @@
 'use strict';
 
-module.exports = {
-  name: 'ember-ghost'
-};
-
-'use strict';
-
 const _ = require('lodash');
 const MergeTrees = require('broccoli-merge-trees');
 const StaticSiteJson = require('broccoli-static-site-json');
@@ -35,7 +29,7 @@ const attributes = [
 const references = ['author'];
 
 module.exports = {
-  name: 'ember-ghost',
+  name: require('./package').name,
 
   included(app) {
     this._super.included.apply(this, arguments)
