@@ -38,13 +38,13 @@
     "ember-lodash": "^4.18.0",
     "ember-meta": "^0.3.0",
     "lodash": "^4.17.11",
-    "recast": "^0.15.0",
+    "recast": "^0.15.5",
     "resolve": "^1.8.1",
-    "walk-sync": "^0.3.2",
+    "walk-sync": "^0.3.3",
     "yaml-front-matter": "^4.0.0"
   },
   "devDependencies": {
-    "@ember/optional-features": "^0.6.3",
+    "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.1.2",
     "ember-cli": "~3.4.3",
@@ -76,8 +76,8 @@
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
-    "prember": "^0.3.0",
-    "qunit-dom": "^0.7.1"
+    "prember": "^0.4.0",
+    "qunit-dom": "^0.8.0"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
