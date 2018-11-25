@@ -23,7 +23,6 @@ module.exports = {
   },
 
   locals: function(options) {
-
     let packageName = options.project.name();
     let dasherizedPackageName = stringUtils.dasherize(packageName);
 
