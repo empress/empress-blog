@@ -1,22 +1,64 @@
 /* eslint-env node */
 const recast = require('recast');
 const { readFileSync, writeFileSync } = require('fs');
+const path = require('path');
+const stringUtils = require('ember-cli-string-utils');
 
 module.exports = {
-  description: 'The default blueprint for ember-casper-template.',
+  description: 'The default blueprint for ember-ghost.',
 
   normalizeEntityName() {
     // no-op
   },
 
+  fileMapTokens: function() {
+    let isAddon = this.project.isEmberCLIAddon();
+    return {
+      __base__() {
+        if(isAddon) {
+          return path.join('tests', 'dummy');
+        }
+      }
+    }
+  },
+
+  locals: function(options) {
+    let packageName = options.project.name();
+    let dasherizedPackageName = stringUtils.dasherize(packageName);
+
+    if(options.project.isEmberCLIAddon()) {
+      dasherizedPackageName = 'dummy';
+    }
+
+    return {
+      dasherizedPackageName,
+    };
+  },
+
   afterInstall() {
-    return this.addAddonsToProject({
+
+    let devInstall = {
       packages: [
-        'prember@0.3.0',
-        'ember-cli-cjs-transform',
+        'prember',
         'ember-cli-fastboot',
+      ]
+    }
+
+    let install = {
+      packages: [
         'ember-moment',
       ]
+    }
+
+    // save as dependencies in case of an addon
+    if(this.project.isEmberCLIAddon()) {
+      install.blueprintOptions = {
+        save: true
+      };
+    }
+
+    return this.addAddonsToProject(install).then(() => {
+      return this.addAddonsToProject(devInstall);
     }).then(() => {
       const builders = recast.types.builders;
 
@@ -69,7 +111,13 @@ module.exports = {
 
       writeFileSync('./ember-cli-build.js', recast.print(ast, { tabWidth: 2, quote: 'single' }).code);
 
-      const config = readFileSync('./config/environment.js');
+      let configFile = './config/environment.js'
+
+      if(this.project.isEmberCLIAddon()) {
+        configFile = './tests/dummy/config/environment.js';
+      }
+
+      const config = readFileSync(configFile);
       const configAst = recast.parse(config);
 
       recast.visit(configAst, {
@@ -112,7 +160,7 @@ module.exports = {
         }
       });
 
-      writeFileSync('./config/environment.js', recast.print(configAst, { tabWidth: 2, quote: 'single' }).code);
+      writeFileSync(configFile, recast.print(configAst, { tabWidth: 2, quote: 'single' }).code);
     });
   },
 

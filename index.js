@@ -37,16 +37,6 @@ const references = ['author'];
 module.exports = {
   name: 'ember-ghost',
 
-  included(app) {
-    this._super.included.apply(this, arguments)
-
-    app.import('node_modules/downsize-cjs/index.js', {
-      using: [
-        { transformation: 'cjs', as: 'downsize'}
-      ]
-    });
-  },
-
   config(env, config) {
     let blog = config.blog || {};
 
