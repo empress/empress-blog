@@ -2,7 +2,6 @@
 const recast = require('recast');
 const { readFileSync, writeFileSync } = require('fs');
 const path = require('path');
-// eslint-disable-next-line node/no-unpublished-require
 const stringUtils = require('ember-cli-string-utils');
 
 module.exports = {
