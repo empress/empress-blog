@@ -83,6 +83,6 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "before": "prember",
-    "demoURL": "https://ember-ghost.netlify.com"
+    "demoURL": "https://ember-ghost-casper-template.netlify.com"
   }
 }
