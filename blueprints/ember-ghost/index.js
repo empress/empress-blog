@@ -18,6 +18,7 @@ module.exports = {
         if(isAddon) {
           return path.join('tests', 'dummy');
         }
+        return '';
       }
     }
   },
