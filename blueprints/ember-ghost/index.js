@@ -144,9 +144,9 @@ module.exports = {
                       builders.property('init', builders.identifier('route'), builders.literal('index')),
                     ]),
                     builders.objectExpression([
-                      builders.property('init', builders.identifier('label'), builders.literal('Built by Stone Circle')),
+                      builders.property('init', builders.identifier('label'), builders.literal('Built by Chris Manson')),
                       builders.property('init', builders.identifier('route'), builders.literal('page')),
-                      builders.property('init', builders.identifier('id'), builders.literal('stone-circle')),
+                      builders.property('init', builders.identifier('id'), builders.literal('chris-manson')),
                     ])
                   ])),
                 ])
