@@ -7,12 +7,11 @@
     "ember-ghost",
     "prember-plugin"
   ],
-  "repository": "https://github.com/stonecircle/ember-ghost",
+  "repository": "https://github.com/empress/ember-ghost",
   "license": "MIT",
   "author": {
     "name": "Chris Manson",
-    "email": "chris@stonecircle.io",
-    "url": "https://stonecircle.io"
+    "email": "chris.manson@simplabs.com"
   },
   "directories": {
     "doc": "doc",
@@ -84,6 +83,6 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "before": "prember",
-    "demoURL": "https://ember-ghost.stonecircle.io"
+    "demoURL": "https://ember-ghost-casper-template.netlify.com"
   }
 }

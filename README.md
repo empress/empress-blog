@@ -7,15 +7,13 @@ hosting solution.
 
 This system supports the use of shallow forks of Ghost themes and currently supports
 
-- [Ember Ghost Casper Template](https://github.com/stonecircle/ember-ghost-casper-template) which is a shallow fork of the official [Casper Template](https://github.com/TryGhost/Casper)
-- [Ember Ghost Atilla Template](https://github.com/stonecircle/ember-ghost-attila-template) which is a shallow fork of [Atilla](https://github.com/zutrinken/attila)
+- [Ember Ghost Casper Template](https://github.com/empress/ember-ghost-casper-template) which is a shallow fork of the official [Casper Template](https://github.com/TryGhost/Casper)
+- [Ember Ghost Atilla Template](https://github.com/empress/ember-ghost-attila-template) which is a shallow fork of [Atilla](https://github.com/zutrinken/attila)
 
-If you are interested in writing your own theme for Ember Ghost please [reach out to us](https://stonecircle.io) and we can walk you through the process. Hopefully if there is enough interest we can provide basic instructions on how to build your own theme using this system. As Ghost uses handlebars it is not too difficult to port an existing template to use Ember templates, so if you have any requests please let us know 👍
+If you are interested in writing your own theme for Ember Ghost please check out [create-ember-ghost-template](https://github.com/empress/create-ember-ghost-template#readme) which allows you to run `npm init ember-ghost-template <name>` right now to get started (without the need to install anything). Check out the readme for more information.
 
 If you want an example of the this "in production" then check out the [Stone Circle
-Blog](https://blog.stonecircle.io). If you use this in production let us know [on
-Twitter](https://twitter.com/stonecircle_co) and we can add a "built with
-ember-ghost-casper-template" wiki.
+Blog](https://blog.stonecircle.io).
 
 You do not need to be a web developer to be able to use this system. You just write markdown files
 and the rest of the work is performed by EmberJS' build system.
@@ -83,8 +81,8 @@ let ENV = {
   // leave all the other config in tact and add the following key
 
   blog: {
-    title: "The Stone Circle",
-    description: "The Stone Circle perspective on Software Development, Business and more.",
+    title: "The Write Blog",
+    description: "Here is where I lay my words",
     logo: "/images/logo-white.png",
     rssLogo: '/images/logo.png',
     coverImage: "/images/cover-image.jpg",
@@ -92,9 +90,9 @@ let ENV = {
       attribution: "by Conor Luddy",
       attributionLink: "https://unsplash.com/photos/QkQXTxJ7TLg"
     },
-    twitter: "stonecircle_co",
+    twitter: "emberjs",
     navigation: [
-      { label: 'Software Consulting', link: 'https://stonecircle.io' },
+      { label: 'Ember Consulting', link: 'https://simplabs.com' },
       { label: 'Blog Home', route: 'index' },
     ]
   },
