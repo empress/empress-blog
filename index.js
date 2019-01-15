@@ -16,22 +16,6 @@ const yamlFront = require('yaml-front-matter');
 const { readFileSync } = require('fs');
 const { join } = require('path');
 
-const attributes = [
-  'canonical',
-  'date',
-  'featured',
-  'image',
-  'imageMeta',
-  'language',
-  'meta_description',
-  'meta_title',
-  'page',
-  'status',
-  'tags',
-  'title',
-  'uuid',
-];
-
 const references = ['author'];
 
 module.exports = {
@@ -75,7 +59,22 @@ module.exports = {
 
     const contentTree = new StaticSiteJson(join(appPrefix, 'content'), {
       type: 'content',
-      attributes,
+      attributes: [
+        'canonical',
+        'date',
+        'excerpt',
+        'featured',
+        'image',
+        'imageMeta',
+        'language',
+        'meta_description',
+        'meta_title',
+        'page',
+        'status',
+        'tags',
+        'title',
+        'uuid',
+      ],
       references,
       contentFolder: 'content',
       collections: [{
@@ -86,7 +85,21 @@ module.exports = {
 
     const pageTree = new StaticSiteJson(join(appPrefix, 'page'), {
       type: 'page',
-      attributes,
+      attributes: [
+        'canonical',
+        'date',
+        'featured',
+        'image',
+        'imageMeta',
+        'language',
+        'meta_description',
+        'meta_title',
+        'page',
+        'status',
+        'tags',
+        'title',
+        'uuid',
+      ],
       references,
       contentFolder: 'page',
       collections: [{

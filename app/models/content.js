@@ -5,6 +5,7 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   canonical: DS.attr(),
   content: DS.attr('string'),
+  excerpt: DS.attr(),
   html: DS.attr('string'),
 
   image: DS.attr('string'),
