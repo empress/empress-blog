@@ -16,6 +16,8 @@ const yamlFront = require('yaml-front-matter');
 const { readFileSync } = require('fs');
 const { join } = require('path');
 
+const AuthorsArray  = require('./lib/authors-array');
+
 const references = ['author'];
 
 module.exports = {
@@ -50,14 +52,14 @@ module.exports = {
     }
   },
 
-  // isDevelopingAddon() {
-  //   return true;
-  // },
+  isDevelopingAddon() {
+    return true;
+  },
 
   treeForPublic() {
     let appPrefix = join(this.project.configPath(), '../..');
 
-    const contentTree = new StaticSiteJson(join(appPrefix, 'content'), {
+    const contentTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'content')), {
       type: 'content',
       attributes: [
         'canonical',
