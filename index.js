@@ -16,7 +16,7 @@ const yamlFront = require('yaml-front-matter');
 const { readFileSync } = require('fs');
 const { join } = require('path');
 
-const references = ['author'];
+const AuthorsArray  = require('./lib/authors-array');
 
 module.exports = {
   name: 'ember-ghost',
@@ -57,7 +57,7 @@ module.exports = {
   treeForPublic() {
     let appPrefix = join(this.project.configPath(), '../..');
 
-    const contentTree = new StaticSiteJson(join(appPrefix, 'content'), {
+    const contentTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'content')), {
       type: 'content',
       attributes: [
         'canonical',
@@ -75,15 +75,14 @@ module.exports = {
         'title',
         'uuid',
       ],
-      references,
+      references: ['authors'],
       contentFolder: 'content',
       collections: [{
-        src: join(appPrefix, 'content'),
         output: `content.json`,
       }],
     });
 
-    const pageTree = new StaticSiteJson(join(appPrefix, 'page'), {
+    const pageTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'page')), {
       type: 'page',
       attributes: [
         'canonical',
@@ -100,10 +99,9 @@ module.exports = {
         'title',
         'uuid',
       ],
-      references,
+      references: ['authors'],
       contentFolder: 'page',
       collections: [{
-        src: join(appPrefix, 'page'),
         output: 'page.json',
       }],
     });
@@ -123,7 +121,6 @@ module.exports = {
         'location',
       ],
       collections: [{
-        src: join(appPrefix, 'author'),
         output: 'author.json',
       }]
     });

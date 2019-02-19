@@ -19,5 +19,11 @@ export default DS.Model.extend({
     return get(this, 'tags.firstObject');
   }),
 
-  author: DS.belongsTo('author'),
+  authors: DS.hasMany('author'),
+
+  author: computed('authors.[]', function() {
+    // eslint-disable-next-line no-console
+    console.warn(`"author" is deprecated, you must define "authors" now. Content: ${this.title}`);
+    return get(this, 'authors.firstObject');
+  })
 });
