@@ -1,8 +1,13 @@
 
+1.4.0 / 2019-02-19
+==================
+
+  * Add support for multiple authors on posts and deprecate single authors #15 from @amyrlam
+
 1.3.0 / 2019-01-15
 ==================
 
-  * Add `excerpt` to post model #14 from @amyrlam 
+  * Add `excerpt` to post model #14 from @amyrlam
 
 1.2.0 / 2018-11-25
 ==================
