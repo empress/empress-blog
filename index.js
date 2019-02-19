@@ -78,7 +78,6 @@ module.exports = {
       references: ['authors'],
       contentFolder: 'content',
       collections: [{
-        src: join(appPrefix, 'content'),
         output: `content.json`,
       }],
     });
@@ -103,7 +102,6 @@ module.exports = {
       references: ['authors'],
       contentFolder: 'page',
       collections: [{
-        src: join(appPrefix, 'page'),
         output: 'page.json',
       }],
     });
@@ -123,7 +121,6 @@ module.exports = {
         'location',
       ],
       collections: [{
-        src: join(appPrefix, 'author'),
         output: 'author.json',
       }]
     });
