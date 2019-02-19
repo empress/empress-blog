@@ -18,6 +18,14 @@ Blog](https://blog.stonecircle.io).
 You do not need to be a web developer to be able to use this system. You just write markdown files
 and the rest of the work is performed by EmberJS' build system.
 
+Super Quick Start
+------------------------------------------------------------------------------
+If you want to get your new Ember-Ghost blog deployed on [Netlify](https://www.netlify.com/) in less than a minute then you can just click this button:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/empress/ember-ghost-netlify-casper-template)
+
+If you want to instead work with your blog locally before deploying then you can continue reading
+
 Quick Start
 ------------------------------------------------------------------------------
 
