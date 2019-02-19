@@ -50,9 +50,9 @@ module.exports = {
     }
   },
 
-  isDevelopingAddon() {
-    return true;
-  },
+  // isDevelopingAddon() {
+  //   return true;
+  // },
 
   treeForPublic() {
     let appPrefix = join(this.project.configPath(), '../..');
