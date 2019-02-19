@@ -18,8 +18,6 @@ const { join } = require('path');
 
 const AuthorsArray  = require('./lib/authors-array');
 
-const references = ['author'];
-
 module.exports = {
   name: 'ember-ghost',
 
@@ -77,7 +75,7 @@ module.exports = {
         'title',
         'uuid',
       ],
-      references,
+      references: ['authors'],
       contentFolder: 'content',
       collections: [{
         src: join(appPrefix, 'content'),
@@ -85,7 +83,7 @@ module.exports = {
       }],
     });
 
-    const pageTree = new StaticSiteJson(join(appPrefix, 'page'), {
+    const pageTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'page')), {
       type: 'page',
       attributes: [
         'canonical',
@@ -102,7 +100,7 @@ module.exports = {
         'title',
         'uuid',
       ],
-      references,
+      references: ['authors'],
       contentFolder: 'page',
       collections: [{
         src: join(appPrefix, 'page'),
