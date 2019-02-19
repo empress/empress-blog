@@ -1,11 +1,5 @@
 'use strict';
 
-module.exports = {
-  name: 'ember-ghost'
-};
-
-'use strict';
-
 const _ = require('lodash');
 const MergeTrees = require('broccoli-merge-trees');
 const StaticSiteJson = require('broccoli-static-site-json');
@@ -19,7 +13,7 @@ const { join } = require('path');
 const references = ['author'];
 
 module.exports = {
-  name: 'ember-ghost',
+  name: require('./package').name,
 
   config(env, config) {
     let blog = config.blog || {};
