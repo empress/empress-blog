@@ -1,10 +1,8 @@
 import Route from '@ember/routing/route';
 import { hash } from 'rsvp';
-import { get } from '@ember/object';
 
 export default Route.extend({
   classNames: ["post-template"],
-
 
   model(params) {
     return hash({
@@ -14,10 +12,6 @@ export default Route.extend({
       posts: this.store.query('content', {
         path: 'content',
       })
-    }).then((result) => {
-      return get(result, 'post.author')
-        .then((author) => this.store.findRecord('author', author.id))
-        .then(() => result);
-    })
+    });
   },
 });
