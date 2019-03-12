@@ -10,8 +10,7 @@ imageMeta:
     attribution: face
     attributionLink: https://www.emberjs.com/face
 featured: true
-authors:
-  - ghost
+author: ghost
 date: Tue Jun 12 2018 17:49:21 GMT+0100 (IST)
 tags:
     - getting-started
