@@ -1,4 +1,10 @@
 
+1.4.1 / 2019-03-12
+==================
+
+  * converting from ember-ghost to empress-blog #17 from @mansona
+
+
 1.4.0 / 2019-02-19
 ==================
 
