@@ -135,7 +135,7 @@ module.exports = {
                 'init',
                 builders.identifier('blog'),
                 builders.objectExpression([
-                  builders.property('init', builders.identifier('title'), builders.literal('Ember Ghost')),
+                  builders.property('init', builders.identifier('title'), builders.literal('empress-blog')),
                   builders.property('init', builders.identifier('description'), builders.literal('Static Blog System - Built with Ember')),
                   builders.property('init', builders.identifier('coverImage'), builders.literal('/images/blog-cover.jpg')),
                   builders.property('init', builders.identifier('navigation'), builders.arrayPattern([
