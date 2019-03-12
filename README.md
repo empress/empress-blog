@@ -1,4 +1,4 @@
-ember-ghost
+empress-blog
 ==============================================================================
 
 This project is designed to be a fully-functional, static site implementation of a blog system that is mostly compatible with [Ghost](https://ghost.org/) and is built on EmberJS with fully working out of the
@@ -7,10 +7,10 @@ hosting solution.
 
 This system supports the use of shallow forks of Ghost themes and currently supports
 
-- [Ember Ghost Casper Template](https://github.com/empress/ember-ghost-casper-template) which is a shallow fork of the official [Casper Template](https://github.com/TryGhost/Casper)
-- [Ember Ghost Atilla Template](https://github.com/empress/ember-ghost-attila-template) which is a shallow fork of [Atilla](https://github.com/zutrinken/attila)
+- [Ember Ghost Casper Template](https://github.com/empress/empress-blog-casper-template) which is a shallow fork of the official [Casper Template](https://github.com/TryGhost/Casper)
+- [Ember Ghost Atilla Template](https://github.com/empress/empress-blog-attila-template) which is a shallow fork of [Atilla](https://github.com/zutrinken/attila)
 
-If you are interested in writing your own theme for Ember Ghost please check out [create-ember-ghost-template](https://github.com/empress/create-ember-ghost-template#readme) which allows you to run `npm init ember-ghost-template <name>` right now to get started (without the need to install anything). Check out the readme for more information.
+If you are interested in writing your own theme for Ember Ghost please check out [create-empress-blog-template](https://github.com/empress/create-empress-blog-template#readme) which allows you to run `npm init empress-blog-template <name>` right now to get started (without the need to install anything). Check out the readme for more information.
 
 If you want an example of the this "in production" then check out the [Stone Circle
 Blog](https://blog.stonecircle.io).
@@ -20,9 +20,9 @@ and the rest of the work is performed by EmberJS' build system.
 
 Super Quick Start
 ------------------------------------------------------------------------------
-If you want to get your new Ember-Ghost blog deployed on [Netlify](https://www.netlify.com/) in less than a minute then you can just click this button:
+If you want to get your new empress-blog blog deployed on [Netlify](https://www.netlify.com/) in less than a minute then you can just click this button:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/empress/ember-ghost-netlify-casper-template)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/empress/empress-blog-netlify-casper-template)
 
 If you want to instead work with your blog locally before deploying then you can continue reading
 
@@ -37,7 +37,7 @@ ember new super-blog
 cd super-blog
 
 # you can replace the template with the one you want to use
-ember install ember-ghost ember-ghost-casper-template
+ember install empress-blog empress-blog-casper-template
 ```
 
 It will ask you if you want to update the `index.html` file and you should say yes 👍
@@ -138,7 +138,7 @@ Contributing
 ### Installation
 
 * `git clone <repository-url>`
-* `cd ember-ghost`
+* `cd empress-blog`
 * `npm install`
 
 ### Linting

@@ -5,7 +5,7 @@ const path = require('path');
 const stringUtils = require('ember-cli-string-utils');
 
 module.exports = {
-  description: 'The default blueprint for ember-ghost.',
+  description: 'The default blueprint for empress-blog.',
 
   normalizeEntityName() {
     // no-op
