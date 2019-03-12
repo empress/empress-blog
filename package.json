@@ -1,13 +1,14 @@
 {
-  "name": "ember-ghost",
+  "name": "empress-blog",
   "version": "1.4.0",
   "description": "Fully-functional, SEO friendly static site implementation of a blog system built on Ember.",
   "keywords": [
     "ember-addon",
     "ember-ghost",
+    "empress-blog",
     "prember-plugin"
   ],
-  "repository": "https://github.com/empress/ember-ghost",
+  "repository": "https://github.com/empress/empress-blog",
   "license": "MIT",
   "author": {
     "name": "Chris Manson",
@@ -54,8 +55,6 @@
     "ember-ajax": "^3.0.0",
     "ember-cli": "~3.1.4",
     "ember-cli-dependency-checker": "^2.0.0",
-    "ember-cli-deploy": "^1.0.2",
-    "ember-cli-deploy-s3-pack": "^1.0.0-beta.2",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-fastboot": "^2.0.4",
     "ember-cli-htmlbars": "^2.0.1",
@@ -69,7 +68,6 @@
     "ember-data": "^3.1.1",
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
-    "ember-ghost-casper-template": "^2.0.1",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^7.7.0",
@@ -89,6 +87,6 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "before": "prember",
-    "demoURL": "https://ember-ghost-casper-template.netlify.com"
+    "demoURL": "https://empress-blog-casper-template.netlify.com"
   }
 }

@@ -1,1 +1,1 @@
-export { default, url } from 'ember-ghost/helpers/url';
+export { default, url } from 'empress-blog/helpers/url';

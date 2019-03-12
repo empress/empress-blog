@@ -1,1 +1,1 @@
-export { default } from 'ember-ghost/adapters/application';
+export { default } from 'empress-blog/adapters/application';

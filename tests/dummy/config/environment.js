@@ -22,7 +22,7 @@ module.exports = function(environment) {
       // when it is created
     },
     blog: {
-      title: "ember ghost",
+      title: "empress-blog",
       description: "Thoughts, stories and ideas.",
       coverImage: "/images/blog-cover.jpg",
       navigation: [
