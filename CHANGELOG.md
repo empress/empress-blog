@@ -1,4 +1,10 @@
 
+1.4.2 / 2019-03-12
+==================
+
+  * fixing default blueprint names #18 from @mansona
+  * fixing authors deprecation #18 from @mansona
+
 1.4.1 / 2019-03-12
 ==================
 
