@@ -16,7 +16,8 @@ export default DS.Model.extend({
   tags: DS.attr(),
 
   primaryTag: computed('tags.[]', function() {
-    return get(this, 'tags.firstObject');
+    let tags = this.tags || [];
+    return tags[0];
   }),
 
   authors: DS.hasMany('author'),
