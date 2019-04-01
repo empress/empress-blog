@@ -1,4 +1,10 @@
 
+1.5.0 / 2019-04-01
+==================
+
+  * add date, plural and route-is helpers for theme development #21 from @mansona
+  * correct spelling error, satic -> static #20 from @jenweber
+
 1.4.2 / 2019-03-12
 ==================
 
