@@ -1,6 +1,8 @@
 empress-blog
 ==============================================================================
 
+> **Note:** if you have come here wanting to use empress-blog for your own blog then [skip down to the quick-start](#quick-start). You do **not** need to clone this repo to get started, you only need to clone this repo if you want to develop empress-blog 🎉
+
 This project is designed to be a fully-functional, static site implementation of a blog system that is mostly compatible with [Ghost](https://ghost.org/) and is built on EmberJS with fully working out of the
 box SEO friendly output. It supports being hosted on AWS S3 or any other static site
 hosting solution.
