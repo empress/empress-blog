@@ -133,6 +133,30 @@ if (environment === 'production') {
 
 when ember-casper-template sees that you have host defined it will start generating the rss feed.
 
+Custom Themes
+------------------------------------------------------------------------------
+
+If you are interested in writing your own theme for empress-blog you can get
+started using
+
+```bash
+npm init empress-blog-template <template-name>
+```
+
+This will create a brand new template addon in the folder
+`empress-blog-template-name-template`! This directory will contain a blank theme
+based on the official [Ghost Starter Theme](https://github.com/TryGhost/Starter)
+and is intended to be setup in such a way that anyone with HTML and CSS skills
+can start developing their own themes without needing much knowledge of Ember 🎉
+
+If you are new to ember and you feel like there is anything we can do to help
+you get started please reach out to me [on Twitter](https://twitter.com/real_ate)
+and I'd be happy to help you. You can check out the documentation for
+[create-empress-blog-template here](https://github.com/empress/create-empress-blog-template#readme).
+
+If you do end up writing an empress-blog template please let us know so I can
+include your template in a list of existing templates.
+
 
 Contributing
 ------------------------------------------------------------------------------
