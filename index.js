@@ -11,6 +11,7 @@ const { readFileSync } = require('fs');
 const { join } = require('path');
 
 const AuthorsArray  = require('./lib/authors-array');
+const AddIncludedJson = require('./lib/add-included-json');
 
 module.exports = {
   name: 'empress-blog',
@@ -119,7 +120,13 @@ module.exports = {
       }]
     });
 
-    const trees = [contentTree, pageTree, authorTree];
+    const includedTree = new AddIncludedJson(MergeTrees([contentTree, pageTree, authorTree]), {
+      include: {
+        content: ['author']
+      }
+    });
+
+    const trees = [contentTree, pageTree, authorTree, includedTree];
 
     const config = this.project.config(process.env.EMBER_ENV || 'development');
 
@@ -138,7 +145,7 @@ module.exports = {
       }
     }
 
-    return MergeTrees(trees);
+    return MergeTrees(trees, { overwrite: true });
   },
 
   contentFor(type, config) {
