@@ -6,12 +6,8 @@ export default Route.extend({
 
   model(params) {
     return hash({
-      post:  this.store.queryRecord('content', {
-        path: params.id,
-      }),
-      posts: this.store.query('content', {
-        path: 'content',
-      })
+      post:  this.store.findRecord('content', params.id),
+      posts: this.store.findAll('content'),
     });
   },
 });
