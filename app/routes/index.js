@@ -6,8 +6,6 @@ export default Route.extend({
   store: service(),
   model() {
     return this.store.findAll('content').then((res) => {
-      debugger
-
       return res;
     });
   },
