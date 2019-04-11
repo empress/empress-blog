@@ -21,5 +21,10 @@ export default DS.JSONAPIAdapter.extend({
 
   urlForFindRecord(id, modelName) {
     return `${this.host}/${modelName}/${id}.json`;
+  },
+
+  // query is only ever used for pagination
+  urlForQuery (query) {
+    return `${this.host}/${query.page}`;
   }
 });
