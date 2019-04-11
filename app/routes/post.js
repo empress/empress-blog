@@ -5,13 +5,12 @@ export default Route.extend({
   classNames: ["post-template"],
 
   model(params) {
-    return hash({
-      post:  this.store.queryRecord('content', {
-        path: params.id,
-      }),
-      posts: this.store.query('content', {
-        path: 'content',
-      })
+    // load authors first for ember-data autopopulation
+    return this.store.findAll('author').then(() => {
+      return hash({
+        post:  this.store.findRecord('content', params.id),
+        posts: this.store.findAll('content'),
+      });
     });
   },
 });
