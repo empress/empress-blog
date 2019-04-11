@@ -86,6 +86,9 @@ module.exports = {
       collate: true,
       collationFileName: 'content.json',
       paginate: blogConfig.paginate,
+      paginateSortFunction(a, b) {
+        return b.date - a.date;
+      }
     });
 
     const pageTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'page')), {

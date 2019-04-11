@@ -19,4 +19,5 @@ export default Service.extend({
   twitter: configParam('twitter'),
   facebook: configParam('facebook'),
   host: configParam('host'),
+  paginate: configParam('paginate'),
 });
