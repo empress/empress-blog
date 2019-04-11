@@ -13,7 +13,7 @@ const { join } = require('path');
 const AuthorsArray  = require('./lib/authors-array');
 
 module.exports = {
-  name: 'empress-blog',
+  name: require('./package').name,
 
   config(env, config) {
     let blog = config.blog || {};
