@@ -15,11 +15,23 @@ export default DS.JSONAPIAdapter.extend({
     }
   }),
 
+  ajaxOptions(url, type, options) {
+    // remove the query params
+    delete options.data;
+
+    return this._super(url, type, options);
+  },
+
   urlForFindAll(modelName) {
     return `${this.host}/${modelName}/${modelName}.json`;
   },
 
   urlForFindRecord(id, modelName) {
     return `${this.host}/${modelName}/${id}.json`;
+  },
+
+  // query is only ever used for pagination
+  urlForQuery (query) {
+    return `${this.host}${query.page}`;
   }
 });

@@ -85,6 +85,9 @@ Please make sure that the current version of your template supports pagination b
       collate: true,
       collationFileName: 'content.json',
       paginate: blogConfig.paginate,
+      paginateSortFunction(a, b) {
+        return b.date - a.date;
+      }
     });
 
     const pageTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'page')), {
