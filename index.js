@@ -49,7 +49,18 @@ module.exports = {
   // },
 
   treeForPublic() {
+    const config = this.project.config(process.env.EMBER_ENV || 'development');
+
+    const blogConfig = config.blog || {};
+
     let appPrefix = join(this.project.configPath(), '../..');
+
+    if(_.isNil(blogConfig.paginate)) {
+      this.ui.writeWarnLine(`You have not set paginate to 'true' or 'false' in your blog config. In the next major version of empress-blog this will default to true
+
+Please make sure that the current version of your template supports pagination before turning it on
+`);
+    }
 
     const contentTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'content')), {
       type: 'content',
@@ -71,9 +82,9 @@ module.exports = {
       ],
       references: ['authors'],
       contentFolder: 'content',
-      collections: [{
-        output: `content.json`,
-      }],
+      collate: true,
+      collationFileName: 'content.json',
+      paginate: blogConfig.paginate,
     });
 
     const pageTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'page')), {
@@ -95,9 +106,8 @@ module.exports = {
       ],
       references: ['authors'],
       contentFolder: 'page',
-      collections: [{
-        output: 'page.json',
-      }],
+      collate: true,
+      collationFileName: 'page.json',
     });
 
     const authorTree = new StaticSiteJson(join(appPrefix, 'author'), {
@@ -114,20 +124,17 @@ module.exports = {
         'facebook',
         'location',
       ],
-      collections: [{
-        output: 'author.json',
-      }]
+      collate: true,
+      collationFileName: 'author.json',
     });
 
     const trees = [contentTree, pageTree, authorTree];
 
-    const config = this.project.config(process.env.EMBER_ENV || 'development');
-
-    if (config.blog && config.blog.host) {
+    if (blogConfig.host) {
       trees.push(new StaticSiteJsonXml(contentTree, {
-        title: config.blog.title,
-        host: config.blog.host,
-        icon: config.blog.rssLogo || config.blog.logo,
+        title: blogConfig.title,
+        host: blogConfig.host,
+        icon: blogConfig.rssLogo || blogConfig.logo,
       }));
     } else {
       if(this.ui) {
