@@ -6,9 +6,7 @@ export default Route.extend({
   model(params) {
     return hash({
       tag: params.id,
-      posts: this.store.query('content', {
-        path: 'content',
-      }).then((posts) => posts.filter((post) => {
+      posts: this.store.findAll('content').then((posts) => posts.filter((post) => {
         if (get(post, 'tags')) {
           return get(post, 'tags').includes(params.id);
         }

@@ -5,8 +5,8 @@ export default Route.extend({
   classNames: ["index-template", "home-template"],
   store: service(),
   model() {
-    return this.store.query('content', {
-      path: 'content',
+    return this.store.findAll('content').then((res) => {
+      return res;
     });
   },
 });

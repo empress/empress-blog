@@ -1,25 +1,25 @@
 import DS from 'ember-data';
-
-import { apiHost, apiNamespace} from 'ember-get-config';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default DS.JSONAPIAdapter.extend({
-  buildURL(modelName, id, snapshot, requestType, query) {
-    let prefix = apiHost || '';
+  fastboot: service(),
 
-    if (prefix && apiNamespace) {
-      prefix += `/${apiNamespace}`;
-    } else if(prefix) {
-      prefix += apiNamespace;
+  host: computed('fastboot.isFastBoot', function() {
+    if (this.get('fastboot.isFastBoot')) {
+      let protocol = this.get('fastboot.request.protocol');
+
+      return `${protocol}//${this.get('fastboot.request.host')}`;
+    } else {
+      return window.location.origin;
     }
+  }),
 
-    if (requestType === 'queryRecord') {
-      return `${prefix}/${modelName}/${query.path}.json`;
-    } else if (requestType === 'query') {
-      return `${prefix}/${modelName}/${query.path}.json`;
-    } else if (requestType === 'findRecord') {
-      return `${prefix}/${modelName}/${id}.json`;
-    }
-
-    return this._super(...arguments);
+  urlForFindAll(modelName) {
+    return `${this.host}/${modelName}/${modelName}.json`;
   },
+
+  urlForFindRecord(id, modelName) {
+    return `${this.host}/${modelName}/${id}.json`;
+  }
 });
