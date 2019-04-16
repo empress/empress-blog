@@ -1,10 +1,11 @@
 import HeadData from 'ember-meta/services/head-data';
 import { computed, get } from '@ember/object';
 import { getOwner } from '@ember/application';
-
-import config from '../config/environment';
+import config from 'ember-get-config';
 
 import { getExcerpt } from '../helpers/excerpt';
+
+const { blog } = config;
 
 export default HeadData.extend({
   author: computed('routeName', function() {
@@ -25,7 +26,7 @@ export default HeadData.extend({
       return `${excerpt}...`;
     }
 
-    return config['ember-meta'].description;
+    return blog.description;
   }),
 
   slug: computed('routeName', function() {
@@ -35,4 +36,18 @@ export default HeadData.extend({
   categories: computed('routeName', function() {
     return this.get('currentRouteModel.tags');
   }),
+
+  imgSrc: computed('routeName', function() {
+    let url = blog.domain ? `${blog.domain}` : '';
+
+    url += this.currentRouteModel.image || blog.rssLogo || blog.logo;
+
+    return url;
+  }),
+
+  url: computed('routeName', function() {
+    if(!blog.domain || !this.slug) { return; }
+
+    return `${blog.domain}/${this.slug}/`;
+  })
 });
