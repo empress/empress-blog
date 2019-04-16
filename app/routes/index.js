@@ -11,11 +11,15 @@ export default Route.extend({
   classNames: ["index-template", "home-template"],
   store: service(),
   blog: service(),
-  model(params) {
-    if(this.blog.paginate) {
-      return this.store.query('content', params);
-    }
 
-    return this.store.findAll('content', { adapterOptions: params });
+  model(params) {
+    // load authors first for ember-data autopopulation
+    return this.store.findAll('author').then(() => {
+      if(this.blog.paginate) {
+        return this.store.query('content', params);
+      }
+
+      return this.store.findAll('content');
+    })
   },
 });
