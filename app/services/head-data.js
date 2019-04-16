@@ -13,7 +13,7 @@ export default HeadData.extend({
   }),
 
   currentRouteModel: computed('routeName', function() {
-    return getOwner(this).lookup(`route:${this.get('routeName')}`).get('currentModel.post');
+    return getOwner(this).lookup(`route:${this.get('routeName')}`).get('currentModel.post') || {};
   }),
 
   description: computed('routeName', function() {
@@ -38,7 +38,7 @@ export default HeadData.extend({
   }),
 
   imgSrc: computed('routeName', function() {
-    let url = blog.domain ? `${blog.domain}` : '';
+    let url = blog.host ? `${blog.host}` : '';
 
     url += this.currentRouteModel.image || blog.rssLogo || blog.logo;
 
@@ -46,8 +46,8 @@ export default HeadData.extend({
   }),
 
   url: computed('routeName', function() {
-    if(!blog.domain || !this.slug) { return; }
+    if(!blog.host || !this.slug) { return; }
 
-    return `${blog.domain}/${this.slug}/`;
+    return `${blog.host}/${this.slug}/`;
   })
 });
