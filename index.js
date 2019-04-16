@@ -55,12 +55,13 @@ module.exports = {
 
     let appPrefix = join(this.project.configPath(), '../..');
 
-    if(_.isNil(blogConfig.paginate)) {
-      this.ui.writeWarnLine(`You have not set paginate to 'true' or 'false' in your blog config. In the next major version of empress-blog this will default to true
-
-Please make sure that the current version of your template supports pagination before turning it on
-`);
-    }
+// TODO: once this is stable and added to documentation then we  should enable this warning
+//     if(_.isNil(blogConfig.paginate)) {
+//       this.ui.writeWarnLine(`You have not set paginate to 'true' or 'false' in your blog config. In the next major version of empress-blog this will default to true
+//
+// Please make sure that the current version of your template supports pagination before turning it on
+// `);
+//     }
 
     const contentTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'content')), {
       type: 'content',
