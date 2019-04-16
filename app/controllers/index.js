@@ -16,10 +16,12 @@ export default Controller.extend({
   }),
 
   pageNumber: computed('page', function() {
-    return this.page.match(/content\/content-(.*).json/)[1];
+    let page = parseInt(this.page.match(/content\/content-(.*).json/)[1]);
+    return page + 1;
   }),
 
   numerOfPages: computed('model.links.last', function() {
-    return this.model.links.last.match(/content\/content-(.*).json/)[1];
+    let pages = parseInt(this.model.links.last.match(/content\/content-(.*).json/)[1]);
+    return pages + 1;
   })
 })
