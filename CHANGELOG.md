@@ -1,4 +1,11 @@
 
+1.6.0 / 2019-04-17
+==================
+
+  * updating using ember-cli-update #28 from @mansona
+  * use findAll and find for data instead of query to improve caching #28 from @mansona
+  * adding pagination experiment (opt in for now and unstable) #28 from @mansona
+
 1.5.2 / 2019-04-16
 ==================
 
