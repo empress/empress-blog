@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -21,6 +22,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+
     blog: {
       title: "empress-blog",
       description: "Thoughts, stories and ideas.",
@@ -30,6 +32,16 @@ module.exports = function(environment) {
         { label: 'Built by Chris Manson', route: 'page', id: 'chris-manson' }
       ]
     },
+
+    'responsive-image': {
+      sourceDir: 'images',
+      destinationDir: 'responsive-images',
+      quality: 80,
+      supportedWidths: [2000, 1000, 600, 300],
+      removeSourceDir: false,
+      justCopy: false,
+      extensions: ['jpg', 'jpeg', 'png', 'gif']
+    }
   };
 
   if (environment === 'development') {
