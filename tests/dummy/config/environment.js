@@ -30,7 +30,8 @@ module.exports = function(environment) {
       navigation: [
         { label: 'Home', route: 'index' },
         { label: 'Built by Chris Manson', route: 'page', id: 'chris-manson' }
-      ]
+      ],
+      host: 'https://empress-blog.netlify.com',
     },
 
     'responsive-image': {
