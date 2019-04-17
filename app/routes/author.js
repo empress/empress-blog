@@ -4,9 +4,7 @@ export default Route.extend({
   classNames: ["author-template"],
   model(params) {
     // load content first for ember-data autopopulation
-    return this.store.query('content', {
-      path: 'content',
-    }).then(() => {
+    return this.store.findAll('content').then(() => {
       return this.store.findRecord('author', params.id)
     });
   },
