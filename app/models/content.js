@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 import { get, computed } from '@ember/object';
 
+import { deprecate } from '@ember/application/deprecations';
+
 export default DS.Model.extend({
   title: DS.attr('string'),
   canonical: DS.attr(),
@@ -23,8 +25,10 @@ export default DS.Model.extend({
   authors: DS.hasMany('author'),
 
   author: computed('authors.[]', function() {
-    // eslint-disable-next-line no-console
-    console.warn(`"author" is deprecated, you must define "authors" now. Content: ${this.title}`);
+    deprecate(`"author" is deprecated in the content model. You must use "authors" now in your templates.`, false, {
+      id: 'empress-blog:content-model-author',
+      until: '4.0.0',
+    });
     return get(this, 'authors.firstObject');
   })
 });
