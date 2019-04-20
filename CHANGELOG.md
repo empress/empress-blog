@@ -1,4 +1,9 @@
 
+1.6.1 / 2019-04-20
+==================
+
+  * turning contet.author deprecation into a real deprecation from @mansona
+
 1.6.0 / 2019-04-17
 ==================
 
