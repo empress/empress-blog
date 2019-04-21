@@ -88,7 +88,7 @@ blog](https://blog.stonecircle.io)
 ```javascript
 let ENV = {
 
-  // leave all the other config in tact and add the following key
+  // leave all the other config intact and add the following key
 
   blog: {
     title: "The Write Blog",
