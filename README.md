@@ -32,26 +32,26 @@ Quick Start
 ------------------------------------------------------------------------------
 
 ```sh
-# if you don't have ember-cli installed already
-npm install -g ember-cli
+npm init ember-app super-blog
 
-ember new super-blog
 cd super-blog
 
 # you can replace the template with the one you want to use
-ember install empress-blog empress-blog-casper-template
+npx ember-cli install empress-blog empress-blog-casper-template
 ```
 
 It will ask you if you want to update the `index.html` file and you should say yes 👍
 
-To build the static output directory, run the **standard** build process for a production Ember application:
-```
-ember build -e production
-```
-This will generate a fully static output of your site in the `dist` folder.
-
 If you want to see the blog system running on your local machine just run `npm start` and you will
 be able to navigate to  [http://localhost:4200](http://localhost:4200) to see the blog in action.
+
+**Note:** you need `npm@6.1` or later run this quick start. You can update with `npm install -g npm@latest` or check the [official docs](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
+
+To build the static output directory, run the **standard** build process for a production Ember application:
+```
+npm run build -- -prod
+```
+This will generate a fully static output of your site in the `dist` folder.
 
 
 Usage
