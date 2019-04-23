@@ -13,13 +13,10 @@ export default Route.extend({
   blog: service(),
 
   model(params) {
-    // load authors first for ember-data autopopulation
-    return this.store.findAll('author').then(() => {
-      if(this.blog.paginate) {
-        return this.store.query('content', params);
-      }
+    if(this.blog.paginate) {
+      return this.store.query('content', params);
+    }
 
-      return this.store.findAll('content');
-    })
-  },
+    return this.store.findAll('content');
+  }
 });

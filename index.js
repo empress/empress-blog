@@ -77,11 +77,10 @@ module.exports = {
         'meta_title',
         'page',
         'status',
-        'tags',
         'title',
         'uuid',
       ],
-      references: ['authors'],
+      references: ['authors', 'tags'],
       contentFolder: 'content',
       collate: true,
       collationFileName: 'content.json',
@@ -104,11 +103,10 @@ module.exports = {
         'meta_title',
         'page',
         'status',
-        'tags',
         'title',
         'uuid',
       ],
-      references: ['authors'],
+      references: ['authors', 'tags'],
       contentFolder: 'page',
       collate: true,
       collationFileName: 'page.json',
@@ -132,7 +130,20 @@ module.exports = {
       collationFileName: 'author.json',
     });
 
-    const trees = [contentTree, pageTree, authorTree];
+    const tagTree = new StaticSiteJson(join(appPrefix, 'tag'), {
+      type: 'tag',
+      contentFolder: 'tag',
+      attributes: [
+        'name',
+        'description',
+        'image',
+        'imageMeta',
+      ],
+      collate: true,
+      collationFileName: 'tag.json',
+    });
+
+    const trees = [contentTree, pageTree, authorTree, tagTree];
 
     if (blogConfig.host) {
       trees.push(new StaticSiteJsonXml(contentTree, {
