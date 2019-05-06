@@ -7,10 +7,11 @@ const StaticSiteJsonXml = require('broccoli-static-site-json-xml');
 const walkSync = require('walk-sync');
 const yamlFront = require('yaml-front-matter');
 
-const { readFileSync } = require('fs');
+const { readFileSync, existsSync } = require('fs');
 const { join } = require('path');
 
 const AuthorsArray  = require('./lib/authors-array');
+const TagGenerator  = require('./lib/tag-generator');
 
 module.exports = {
   name: require('./package').name,
@@ -77,11 +78,10 @@ module.exports = {
         'meta_title',
         'page',
         'status',
-        'tags',
         'title',
         'uuid',
       ],
-      references: ['authors'],
+      references: ['authors', 'tags'],
       contentFolder: 'content',
       collate: true,
       collationFileName: 'content.json',
@@ -104,11 +104,10 @@ module.exports = {
         'meta_title',
         'page',
         'status',
-        'tags',
         'title',
         'uuid',
       ],
-      references: ['authors'],
+      references: ['authors', 'tags'],
       contentFolder: 'page',
       collate: true,
       collationFileName: 'page.json',
@@ -132,7 +131,29 @@ module.exports = {
       collationFileName: 'author.json',
     });
 
-    const trees = [contentTree, pageTree, authorTree];
+    let tagFolder = join(appPrefix, 'tag');
+
+    if(!existsSync(join(appPrefix, 'tag'))) {
+      this.ui.writeWarnLine(`As of empress-blog@1.7 you must define your tags in the same way as you define your authors. We will auto generate tag files for you but this behaviour will be removed in empress-blog@2.0.
+
+Please generate tags using 'ember generate tag your-tag-name'`);
+      tagFolder = new TagGenerator(join(appPrefix, 'content'));
+    }
+
+    const tagTree = new StaticSiteJson(tagFolder, {
+      type: 'tag',
+      contentFolder: 'tag',
+      attributes: [
+        'name',
+        'description',
+        'image',
+        'imageMeta',
+      ],
+      collate: true,
+      collationFileName: 'tag.json',
+    });
+
+    const trees = [contentTree, pageTree, authorTree, tagTree];
 
     if (blogConfig.host) {
       trees.push(new StaticSiteJsonXml(contentTree, {

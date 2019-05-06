@@ -1,9 +1,11 @@
 import Controller from '@ember/controller';
 
-import { get, computed } from '@ember/object';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-  coverImageStyle: computed('model.coverImage', function() {
-    return `background-image: url(${get(this, 'model.coverImage')})`
+  blog: service(),
+  coverImage: computed('model.image', function() {
+    return this.model.coverImage || this.blog.coverImage;
   })
 })

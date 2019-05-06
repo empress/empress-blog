@@ -2,7 +2,7 @@
 name: <%= name %>
 id: <%= id %>
 image:
-cover:
+coverImage:
 website:
 twitter:
 facebook:

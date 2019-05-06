@@ -34,7 +34,11 @@ export default HeadData.extend({
   }),
 
   categories: computed('routeName', function() {
-    return this.get('currentRouteModel.tags');
+    let tags = this.get('currentRouteModel.tags')
+
+    if(tags) {
+      return tags.mapBy('name');
+    }
   }),
 
   imgSrc: computed('routeName', function() {

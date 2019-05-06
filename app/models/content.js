@@ -15,11 +15,10 @@ export default DS.Model.extend({
   featured: DS.attr('boolean'),
   status: DS.attr('string'),
   date: DS.attr('date'),
-  tags: DS.attr(),
+  tags: DS.hasMany('tag'),
 
   primaryTag: computed('tags.[]', function() {
-    let tags = this.tags || [];
-    return tags[0];
+    return this.get('tags.firstObject')
   }),
 
   authors: DS.hasMany('author'),
