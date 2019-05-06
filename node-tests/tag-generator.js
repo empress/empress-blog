@@ -20,7 +20,7 @@ async function buildFiles(files) {
   return output.read();
 }
 
-describe.only('Tag Generator', function() {
+describe('Tag Generator', function() {
   beforeEach(async () => {
     input = await createTempDir();
   });
