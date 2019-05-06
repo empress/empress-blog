@@ -42,7 +42,7 @@ module.exports = function(environment) {
       removeSourceDir: false,
       justCopy: false,
       extensions: ['jpg', 'jpeg', 'png', 'gif']
-    }
+    },
   };
 
   if (environment === 'development') {
