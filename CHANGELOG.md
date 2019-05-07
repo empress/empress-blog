@@ -1,4 +1,13 @@
 
+1.7.0 / 2019-05-07
+==================
+
+  * Dependency updates and minor changes ahead of a release #33
+  * adding a second author example for the blueprints #33 from @mansona
+  * adding TagGenerator broccoli plugin for backwards compatibility #32
+  * fixing coverImage for authors and tags #32
+  * Make tags a first-class citizen #32 from @amyrlam
+
 1.6.1 / 2019-04-20
 ==================
 
