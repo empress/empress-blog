@@ -77,7 +77,7 @@
     "ember-source": "~3.9.0",
     "ember-source-channel-url": "^1.1.0",
     "ember-try": "github:mansona/ember-try#fix-npm-5",
-    "empress-blog-casper-template": "^3.0.4",
+    "empress-blog-casper-template": "^3.1.0",
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
