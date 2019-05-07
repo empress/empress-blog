@@ -1,4 +1,9 @@
 
+1.7.1 / 2019-05-07
+==================
+
+  * bumping empress-blog-casper-template for the demo from @mansona
+
 1.7.0 / 2019-05-07
 ==================
 
