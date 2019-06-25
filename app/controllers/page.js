@@ -1,6 +1,1 @@
-import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
-
-export default Controller.extend({
-  blog: service(),
-})
+export { default } from 'empress-blog/controllers/page';
