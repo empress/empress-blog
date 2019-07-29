@@ -1,4 +1,9 @@
 
+1.7.2 / 2019-07-29
+==================
+
+  * fixing infinite loop because of missing tag from @mansona
+
 1.7.1 / 2019-05-07
 ==================
 
