@@ -138,6 +138,33 @@ module.exports = {
 
 Please generate tags using 'ember generate tag your-tag-name'`);
       tagFolder = new TagGenerator(join(appPrefix, 'content'));
+    } else {
+      // make sure if you have defined a tag in a post that it exists
+      let postTags = [];
+      const markdownFiles = walkSync(join(appPrefix, 'content'))
+        .filter(path => path.endsWith('.md'));
+
+      markdownFiles.forEach((file) => {
+        const fileContents = readFileSync(join(appPrefix, 'content', file))
+        const frontMatter = yamlFront.loadFront(fileContents);
+
+        postTags.push(frontMatter.tags);
+      });
+
+      postTags = _.chain(postTags)
+        .flatten()
+        .uniq()
+        .value();
+
+      const tags = walkSync(join(appPrefix, 'tag'))
+        .filter(path => path.endsWith('.md'))
+        .map(fileName => fileName.replace(/\.md$/, ''));
+
+      postTags.forEach((tag) => {
+        if(!_.includes(tags, tag)) {
+          throw new Error(`You have defined a post with tag "${tag}" but there is no tag with that id. To create this tag run 'npx ember g tag ${tag}'`);
+        }
+      })
     }
 
     const tagTree = new StaticSiteJson(tagFolder, {
