@@ -16,6 +16,12 @@ const TagGenerator  = require('./lib/tag-generator');
 module.exports = {
   name: require('./package').name,
 
+  includedCommands: function() {
+    return {
+      'empress-blog:import': require('./lib/import.js'),
+    }
+  },
+
   config(env, config) {
     let blog = config.blog || {};
 
