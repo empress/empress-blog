@@ -157,6 +157,27 @@ and I'd be happy to help you. You can check out the documentation for
 If you do end up writing an empress-blog template please let us know so I can
 include your template in a list of existing templates.
 
+<!---
+Importing content
+------------------------------------------------------------------------------
+
+If you hosted your blog somewhere else, you might be interested in importing the content
+to your new *empress blog*.
+
+Available `import_type`s are:
+ - ghost
+ - wordpress
+ - tumblr
+
+Command line for import is:
+```sh
+ember empress-blog:import [dump_file] --type=[timport_ype]
+```
+
+### Tumblr
+Tumblr gives you a zip. Unpack it. There you will find `posts.zip`. Unpack it. Your `dump_file` is `posts.xml`.
+-->
+
 
 Contributing
 ------------------------------------------------------------------------------
