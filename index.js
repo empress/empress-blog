@@ -232,10 +232,14 @@ Please generate tags using 'ember generate tag your-tag-name'`);
 
     const contentUrls = content.map(file => file.replace(/\.md$/, ''));
 
+    const pageUrls = walkSync(join(appPrefix, 'page'), {
+      globs: ['*.md'],
+    }).map(file => file.replace(/\.md$/, '')).map(file => `/page/${file}`);
+
     const authorUrls = walkSync(join(appPrefix, 'author'), {
       globs: ['*.md'],
     }).map(file => file.replace(/\.md$/, '')).map(file => `/author/${file}`);
 
-    return [...staticUrls, ...contentUrls, ...authorUrls, ...tagUrls];
+    return [...staticUrls, ...contentUrls, ...authorUrls, ...pageUrls, ...tagUrls];
   },
 };
