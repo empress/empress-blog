@@ -10,7 +10,7 @@ hosting solution.
 This system supports the use of shallow forks of Ghost themes and currently supports
 
 - [empress-blog Casper Template](https://github.com/empress/empress-blog-casper-template) which is a shallow fork of the official [Casper Template](https://github.com/TryGhost/Casper)
-- [empress-blog Atilla Template](https://github.com/empress/empress-blog-attila-template) which is a shallow fork of [Atilla](https://github.com/zutrinken/attila)
+- [empress-blog Attila Template](https://github.com/empress/empress-blog-attila-template) which is a shallow fork of [Attila](https://github.com/zutrinken/attila)
 
 If you are interested in writing your own theme for empress-blog please check out [create-empress-blog-template](https://github.com/empress/create-empress-blog-template#readme) which allows you to run `npm init empress-blog-template <name>` right now to get started (without the need to install anything). Check out the readme for more information.
 
