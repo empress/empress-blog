@@ -64,7 +64,12 @@ module.exports = {
 // `);
 //     }
 
-    const contentTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'content')), {
+    let contentFolder = join(appPrefix, 'content');
+
+    // apply backwards-compatability shim for single author attribute
+    contentFolder = new AuthorsArray(contentFolder);
+
+    const contentTree = new StaticSiteJson(contentFolder, {
       type: 'content',
       attributes: [
         'canonical',
