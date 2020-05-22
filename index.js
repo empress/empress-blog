@@ -191,7 +191,7 @@ Please generate tags using 'ember generate tag your-tag-name'`);
         'image',
         'imageMeta',
       ],
-      references: ['posts'],
+      references: [{ name: 'posts', type: 'contents' }],
       collate: true,
       collationFileName: 'tag.json',
     });
