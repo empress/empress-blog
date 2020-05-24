@@ -4,6 +4,7 @@ const _ = require('lodash');
 const MergeTrees = require('broccoli-merge-trees');
 const StaticSiteJson = require('broccoli-static-site-json');
 const StaticSiteJsonXml = require('broccoli-static-site-json-xml');
+const Funnel = require('broccoli-funnel');
 const walkSync = require('walk-sync');
 const yamlFront = require('yaml-front-matter');
 
@@ -12,6 +13,7 @@ const { join } = require('path');
 
 const AuthorsArray  = require('./lib/authors-array');
 const TagGenerator  = require('./lib/tag-generator');
+const TagIncludePosts = require('./lib/tag-include-posts');
 
 module.exports = {
   name: require('./package').name,
@@ -64,7 +66,12 @@ module.exports = {
 // `);
 //     }
 
-    const contentTree = new StaticSiteJson(new AuthorsArray(join(appPrefix, 'content')), {
+    let contentFolder = join(appPrefix, 'content');
+
+    // apply backwards-compatability shim for single author attribute
+    contentFolder = new AuthorsArray(contentFolder);
+
+    const contentTree = new StaticSiteJson(contentFolder, {
       type: 'content',
       attributes: [
         'canonical',
@@ -133,7 +140,7 @@ module.exports = {
 
     let tagFolder = join(appPrefix, 'tag');
 
-    if(!existsSync(join(appPrefix, 'tag'))) {
+    if(!existsSync(tagFolder)) {
       this.ui.writeWarnLine(`As of empress-blog@1.7 you must define your tags in the same way as you define your authors. We will auto generate tag files for you but this behaviour will be removed in empress-blog@2.0.
 
 Please generate tags using 'ember generate tag your-tag-name'`);
@@ -167,6 +174,14 @@ Please generate tags using 'ember generate tag your-tag-name'`);
       })
     }
 
+    // include the post IDs into tags
+    tagFolder = new TagIncludePosts(
+      new MergeTrees([
+        new Funnel(tagFolder, { destDir: 'tag' }),
+        new Funnel(contentFolder, { destDir: 'content' })
+      ])
+    );
+
     const tagTree = new StaticSiteJson(tagFolder, {
       type: 'tag',
       contentFolder: 'tag',
@@ -176,6 +191,7 @@ Please generate tags using 'ember generate tag your-tag-name'`);
         'image',
         'imageMeta',
       ],
+      references: [{ name: 'posts', type: 'contents' }],
       collate: true,
       collationFileName: 'tag.json',
     });
