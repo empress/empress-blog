@@ -1,4 +1,10 @@
 
+1.8.0 / 2020-05-24
+==================
+
+  * automatically include post ids in tags as relationships #61 from @mansona
+  * update broccoli-static-site-json #61 from @mansona
+
 1.7.3 / 2020-03-27
 ==================
 
