@@ -1,4 +1,9 @@
 
+1.8.1 / 2020-05-25
+==================
+
+  * fix references when tags have no posts #62 from @mansona
+
 1.8.0 / 2020-05-24
 ==================
 
