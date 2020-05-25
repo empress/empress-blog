@@ -108,4 +108,36 @@ posts:
 ---
 `)
   });
+
+  it('ignores tags that exist with no content for them', async function() {
+    const files = await buildFiles({
+      content: {
+        'index.md': `---
+tags:
+- new
+---
+# Hello world`},
+      tag: {
+        'new.md': `---
+name: New Posts
+image: ''
+imageMeta: ''
+---
+`,
+        'abandoned.md': `---
+name: No Posts for me
+image: ''
+imageMeta: ''
+---
+`}
+    });
+
+    expect(files).to.have.property('abandoned.md');
+    expect(files['abandoned.md']).to.equal(`---
+name: No Posts for me
+image: ''
+imageMeta: ''
+---
+`)
+  });
 })
