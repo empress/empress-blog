@@ -14,8 +14,7 @@ This system supports the use of shallow forks of Ghost themes and currently supp
 
 If you are interested in writing your own theme for empress-blog please check out [create-empress-blog-template](https://github.com/empress/create-empress-blog-template#readme) which allows you to run `npm init empress-blog-template <name>` right now to get started (without the need to install anything). Check out the readme for more information.
 
-If you want an example of the this "in production" then check out the [Stone Circle
-Blog](https://blog.stonecircle.io).
+If you want an example of the this "in production" then check out the [Chris Manson's Blog](https://chris.manson.ie).
 
 You do not need to be a web developer to be able to use this system. You just write markdown files
 and the rest of the work is performed by EmberJS' build system.
@@ -81,9 +80,7 @@ If you have already generated some content (see above) you will know that you ar
 certain details about your posts. If you want to edit the global configuration you will need to
 provide a section in the Environment config file for your host Ember app (located in
 `config/environment.js`). You will see a `let ENV = {` declaration near the top of the file, you
-will need to add a `blog` key to that object with your configuration. Here is an example with the
-exact contents of that `blog` config object from [the Stone Circle
-blog](https://blog.stonecircle.io)
+will need to add a `blog` key to that object with your configuration. Here is an example of that `blog` config object:
 
 ```javascript
 let ENV = {
@@ -96,10 +93,6 @@ let ENV = {
     logo: "/images/logo-white.png",
     rssLogo: '/images/logo.png',
     coverImage: "/images/cover-image.jpg",
-    coverMeta: {
-      attribution: "by Conor Luddy",
-      attributionLink: "https://unsplash.com/photos/QkQXTxJ7TLg"
-    },
     twitter: "emberjs",
     navigation: [
       { label: 'Ember Consulting', link: 'https://simplabs.com' },
@@ -127,7 +120,7 @@ if (environment === 'production') {
 
   // ... any other production config you might have ...
 
-  ENV.blog.host = 'https://blog.stonecircle.io';
+  ENV.blog.host = 'https://chris.manson.ie';
 }
 ```
 
