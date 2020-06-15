@@ -1,4 +1,11 @@
 
+1.8.2 / 2020-06-15
+==================
+
+  * bump casper-template dev dependency #65 from @mansona
+  * Remove broken links from Readme #64 from @mansona
+  * Fix wrong spelling of Attila #60 from @bracke
+
 1.8.1 / 2020-05-25
 ==================
 
