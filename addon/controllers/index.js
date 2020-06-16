@@ -20,7 +20,7 @@ export default Controller.extend({
     return page + 1;
   }),
 
-  numerOfPages: computed('model.links.last', function() {
+  numberOfPages: computed('model.links.last', function() {
     let pages = parseInt(this.model.links.last.match(/content\/content-(.*).json/)[1]);
     return pages + 1;
   })
