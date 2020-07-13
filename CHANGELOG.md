@@ -1,3 +1,7 @@
+1.8.3 / 2020-07-13
+==================
+
+  * use empress-blueprint-helpers for config writing #68 from @mansona
 
 1.8.2 / 2020-06-15
 ==================
