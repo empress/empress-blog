@@ -13,7 +13,7 @@ const { join } = require('path');
 
 const AuthorsArray  = require('./lib/authors-array');
 const TagGenerator  = require('./lib/tag-generator');
-const TagIncludePosts = require('./lib/tag-include-posts');
+const ItemIncludePosts = require('./lib/item-include-posts');
 
 module.exports = {
   name: require('./package').name,
@@ -123,7 +123,7 @@ module.exports = {
     let authorFolder = join(appPrefix, 'author');
 
     // include the post IDs into authors
-    authorFolder = new TagIncludePosts(
+    authorFolder = new ItemIncludePosts(
       new MergeTrees([
         new Funnel(authorFolder, { destDir: 'author' }),
         new Funnel(contentFolder, { destDir: 'content' })
@@ -187,7 +187,7 @@ Please generate tags using 'ember generate tag your-tag-name'`);
     }
 
     // include the post IDs into tags
-    tagFolder = new TagIncludePosts(
+    tagFolder = new ItemIncludePosts(
       new MergeTrees([
         new Funnel(tagFolder, { destDir: 'tag' }),
         new Funnel(contentFolder, { destDir: 'content' })

@@ -2,7 +2,7 @@ const { expect } = require('chai');
 
 const { createBuilder, createTempDir } = require('broccoli-test-helper');
 
-const TagIncludePosts = require('../lib/tag-include-posts');
+const TagIncludePosts = require('../lib/item-include-posts');
 
 let output;
 let input;
@@ -20,7 +20,7 @@ async function buildFiles(files, type) {
   return output.read();
 }
 
-describe('Tag Generator', function() {
+describe('Item Include Posts Tree', function() {
   beforeEach(async () => {
     input = await createTempDir();
   });
