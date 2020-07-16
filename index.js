@@ -148,6 +148,7 @@ module.exports = {
       ],
       collate: true,
       collationFileName: 'author.json',
+      references: [{ name: 'posts', type: 'contents' }],
     });
 
     let tagFolder = join(appPrefix, 'tag');
