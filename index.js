@@ -120,7 +120,19 @@ module.exports = {
       collationFileName: 'page.json',
     });
 
-    const authorTree = new StaticSiteJson(join(appPrefix, 'author'), {
+    let authorFolder = join(appPrefix, 'author');
+
+    // include the post IDs into authors
+    authorFolder = new TagIncludePosts(
+      new MergeTrees([
+        new Funnel(authorFolder, { destDir: 'author' }),
+        new Funnel(contentFolder, { destDir: 'content' })
+      ]), {
+        itemType: 'author',
+      }
+    );
+
+    const authorTree = new StaticSiteJson(authorFolder, {
       type: 'author',
       contentFolder: 'author',
       attributes: [
@@ -179,7 +191,9 @@ Please generate tags using 'ember generate tag your-tag-name'`);
       new MergeTrees([
         new Funnel(tagFolder, { destDir: 'tag' }),
         new Funnel(contentFolder, { destDir: 'content' })
-      ])
+      ]), {
+        itemType: 'tag',
+      }
     );
 
     const tagTree = new StaticSiteJson(tagFolder, {
