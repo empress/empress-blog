@@ -1,3 +1,8 @@
+1.9.0 / 2020-07-23
+==================
+
+  * automatically include post ids in authors as relationships #70 from @mansona
+
 1.8.3 / 2020-07-13
 ==================
 
