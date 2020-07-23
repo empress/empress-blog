@@ -13,7 +13,7 @@ const { join } = require('path');
 
 const AuthorsArray  = require('./lib/authors-array');
 const TagGenerator  = require('./lib/tag-generator');
-const TagIncludePosts = require('./lib/tag-include-posts');
+const ItemIncludePosts = require('./lib/item-include-posts');
 
 module.exports = {
   name: require('./package').name,
@@ -120,7 +120,19 @@ module.exports = {
       collationFileName: 'page.json',
     });
 
-    const authorTree = new StaticSiteJson(join(appPrefix, 'author'), {
+    let authorFolder = join(appPrefix, 'author');
+
+    // include the post IDs into authors
+    authorFolder = new ItemIncludePosts(
+      new MergeTrees([
+        new Funnel(authorFolder, { destDir: 'author' }),
+        new Funnel(contentFolder, { destDir: 'content' })
+      ]), {
+        itemType: 'author',
+      }
+    );
+
+    const authorTree = new StaticSiteJson(authorFolder, {
       type: 'author',
       contentFolder: 'author',
       attributes: [
@@ -136,6 +148,7 @@ module.exports = {
       ],
       collate: true,
       collationFileName: 'author.json',
+      references: [{ name: 'posts', type: 'contents' }],
     });
 
     let tagFolder = join(appPrefix, 'tag');
@@ -175,11 +188,13 @@ Please generate tags using 'ember generate tag your-tag-name'`);
     }
 
     // include the post IDs into tags
-    tagFolder = new TagIncludePosts(
+    tagFolder = new ItemIncludePosts(
       new MergeTrees([
         new Funnel(tagFolder, { destDir: 'tag' }),
         new Funnel(contentFolder, { destDir: 'content' })
-      ])
+      ]), {
+        itemType: 'tag',
+      }
     );
 
     const tagTree = new StaticSiteJson(tagFolder, {

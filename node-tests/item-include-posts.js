@@ -2,15 +2,17 @@ const { expect } = require('chai');
 
 const { createBuilder, createTempDir } = require('broccoli-test-helper');
 
-const TagIncludePosts = require('../lib/tag-include-posts');
+const TagIncludePosts = require('../lib/item-include-posts');
 
 let output;
 let input;
 
-async function buildFiles(files) {
+async function buildFiles(files, type) {
   input.write(files);
 
-  const subject = new TagIncludePosts(input.path());
+  const subject = new TagIncludePosts(input.path(), {
+    itemType: type
+  });
   output = createBuilder(subject);
 
   await output.build();
@@ -18,7 +20,7 @@ async function buildFiles(files) {
   return output.read();
 }
 
-describe('Tag Generator', function() {
+describe('Item Include Posts Tree', function() {
   beforeEach(async () => {
     input = await createTempDir();
   });
@@ -53,7 +55,7 @@ image: ''
 imageMeta: ''
 ---
 `}
-    });
+    }, 'tag');
 
     expect(files).to.have.property('new.md');
     expect(files['new.md']).to.equal(`---
@@ -64,7 +66,7 @@ posts:
   - index
 ---
 `)
-  })
+  });
 
   it('should order the relationship ids for tags ordered by date decending', async function() {
     const files = await buildFiles({
@@ -94,7 +96,7 @@ image: ''
 imageMeta: ''
 ---
 `}
-    });
+    }, 'tag');
 
     expect(files).to.have.property('new.md');
     expect(files['new.md']).to.equal(`---
@@ -130,11 +132,114 @@ image: ''
 imageMeta: ''
 ---
 `}
-    });
+    }, 'tag');
 
     expect(files).to.have.property('abandoned.md');
     expect(files['abandoned.md']).to.equal(`---
 name: No Posts for me
+image: ''
+imageMeta: ''
+---
+`)
+  });
+
+  it('should add the relationship to content in the author', async function() {
+    const files = await buildFiles({
+      content: {
+        'index.md': `---
+authors:
+- james
+---
+# Hello world`},
+      author: {
+        'james.md': `---
+name: James
+image: ''
+imageMeta: ''
+---
+`}
+    }, 'author');
+
+    expect(files).to.have.property('james.md');
+    expect(files['james.md']).to.equal(`---
+name: James
+image: ''
+imageMeta: ''
+posts:
+  - index
+---
+`)
+  });
+
+  it('should order the relationship ids for authors ordered by date decending', async function() {
+    const files = await buildFiles({
+      content: {
+        'a-post-most-recent.md': `---
+date: 2020-01-10
+authors:
+- james
+---
+# Hello world A`,
+        'b-post-oldest.md': `---
+date: 2010-01-10
+authors:
+- james
+---
+# Hello world B`,
+        'c-post-medium-recent.md': `---
+date: 2020-01-05
+authors:
+- james
+---
+# Hello world C`},
+      author: {
+        'james.md': `---
+name: James
+image: ''
+imageMeta: ''
+---
+`}
+    }, 'author');
+
+    expect(files).to.have.property('james.md');
+    expect(files['james.md']).to.equal(`---
+name: James
+image: ''
+imageMeta: ''
+posts:
+  - a-post-most-recent
+  - c-post-medium-recent
+  - b-post-oldest
+---
+`)
+  });
+
+  it('ignores authors that exist with no content for them', async function() {
+    const files = await buildFiles({
+      content: {
+        'index.md': `---
+author:
+- james
+---
+# Hello world`},
+      author: {
+        'james.md': `---
+name: New Posts
+image: ''
+imageMeta: ''
+---
+`,
+        'abandoned.md': `---
+name: Jonny no posts
+image: ''
+imageMeta: ''
+---
+`}
+    }, 'author');
+
+    expect(files).to.have.property('abandoned.md');
+    expect(files['abandoned.md']).to.equal(`---
+name: Jonny no posts
 image: ''
 imageMeta: ''
 ---
