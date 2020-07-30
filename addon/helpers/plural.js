@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-import _ from 'lodash';
+import isUndefined from 'lodash/isUndefined';
 
 // # Plural Helper
 // Usage example: `{{plural ../pagination.total empty='No posts' singular='1 post' plural='% posts'}}`
@@ -13,8 +13,8 @@ import _ from 'lodash';
 // The 3rd argument is the string that will be output if the variable's value is 1
 // The 4th argument is the string that will be output if the variable's value is 2+
 export function plural([number], hash) {
-  if (_.isUndefined(hash) || _.isUndefined(hash.empty) ||
-      _.isUndefined(hash.singular) || _.isUndefined(hash.plural)) {
+  if (isUndefined(hash) || isUndefined(hash.empty) ||
+      isUndefined(hash.singular) || isUndefined(hash.plural)) {
       throw new Error("you need to define `empty`, `singular` and `plural`");
   }
 

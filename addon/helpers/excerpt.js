@@ -1,6 +1,8 @@
 import { helper } from '@ember/component/helper';
 import { htmlSafe } from '@ember/string';
-import _ from 'lodash';
+import pick from 'lodash/pick';
+import keys from 'lodash/keys';
+import isEmpty from 'lodash/isEmpty';
 import downsize from 'downsize-cjs';
 
 export function getExcerpt(html, truncateOptions) {
@@ -23,12 +25,12 @@ export function excerpt(content, options/*, hash*/) {
   var truncateOptions = options || {};
   var excerptText = options.custom_excerpt ? String(options.custom_excerpt) : String(content);
 
-    truncateOptions = _.pick(truncateOptions, ['words', 'characters']);
-    _.keys(truncateOptions).map(function (key) {
+    truncateOptions = pick(truncateOptions, ['words', 'characters']);
+    keys(truncateOptions).map(function (key) {
         truncateOptions[key] = parseInt(truncateOptions[key], 10);
     });
 
-    if (!_.isEmpty(options.custom_excerpt)) {
+    if (!isEmpty(options.custom_excerpt)) {
         truncateOptions.characters = options.custom_excerpt.length;
         if (truncateOptions.words) {
             delete truncateOptions.words;
