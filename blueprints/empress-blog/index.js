@@ -43,20 +43,6 @@ module.exports = {
       ]
     }
 
-    let install = {
-      packages: [
-        'ember-moment',
-      ]
-    }
-
-    // save as dependencies in case of an addon
-    if(this.project.isEmberCLIAddon()) {
-      install.blueprintOptions = {
-        save: true
-      };
-    }
-
-    await this.addAddonsToProject(install);
     await this.addAddonsToProject(devInstall);
 
     applyBuildConfig('fingerprint', { extensions: ['js', 'css', 'map'] }, true);
