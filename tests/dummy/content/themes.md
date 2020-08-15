@@ -17,7 +17,7 @@ The [empress-blog documentation](https://github.com/empress/empress-blog/blob/ma
 
 If you are interested in writing your own theme for empress-blog you can get started using
 
-```sh
+```bash
 npm init empress-blog-template <template-name>
 ```
 and it will create a brand new template addon in the folder `empress-blog-template-name-template`! You can check out the documentation for [create-empress-blog-template here](https://github.com/empress/create-empress-blog-template#readme). As [Ghost](https://ghost.org/) uses handlebars it is not too difficult to port an existing Ghost template to use Ember templates, so if you have any requests for an existing open source Ghost template please let us know 👍
