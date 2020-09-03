@@ -150,6 +150,14 @@ and I'd be happy to help you. You can check out the documentation for
 If you do end up writing an empress-blog template please let us know so I can
 include your template in a list of existing templates.
 
+Upgrade notes
+------------------------------------------------------------------------------
+
+If you are upgrading from empress-blog@1.x and you start to get some "cannot find helper xyz" errors you will probably either need to update your template if you're using one of the "official" empress-blog templates.
+
+If you have a custom template you might need to install [empress-blog-ghost-helpers](https://github.com/empress/empress-blog-ghost-helpers) as a dependency.
+
+This is because empress-blog originally started as a "shallow fork" of Ghost, and therefore it supported all the helpers that Ghost provided for templates by default. Now you can optionally add support for these helpers which is particularly useful if you are porting a template from Ghost.
 
 Contributing
 ------------------------------------------------------------------------------

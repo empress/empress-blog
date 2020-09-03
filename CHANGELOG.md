@@ -1,3 +1,9 @@
+2.0.0 / 2020-09-03
+==================
+
+  * swap `sh` with `bash` for default content code blocks to support Prism #74 from @nickschot
+  * BREAKING: remove duplicate helpers & dependencies #72 from @nickschot
+
 1.9.0 / 2020-07-23
 ==================
 
