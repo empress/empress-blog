@@ -1,0 +1,17 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 5,
+      "staticDistDir": "dist",
+      "url": [
+        "/",
+        "/welcome/",
+        "/author/ghost/",
+        "/tag/getting-started"
+      ]
+    },
+    "upload": {
+      "serverBaseUrl": "https://ember-lighthouse-ci-server.herokuapp.com/"
+    }
+  }
+}

@@ -1,10 +1,10 @@
 ---
 language: node_js
 node_js:
-  - "8"
+  - "10"
 
 sudo: false
-dist: trusty
+dist: xenial
 
 addons:
   chrome: stable
@@ -37,6 +37,8 @@ jobs:
       script:
         - npm run lint:js
         - npm test
+        - npm run build
+        - lhci autorun
 
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
@@ -51,6 +53,7 @@ before_install:
   - npm config set spin false
   - npm install -g npm@6
   - npm --version
+  - npm install -g @lhci/cli@0.5.x
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
