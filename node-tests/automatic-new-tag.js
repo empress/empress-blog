@@ -93,7 +93,6 @@ date: 'Tue Jun 12 2018 17:50:59 GMT+0100 (IST)'
     expect(files['index5.md']).to.equal(`---
 tags:
   - a-tag-of-sorts
-  - new
 authors:
   - ghost
 date: 'Tue Jun 09 2018 17:50:59 GMT+0100 (IST)'
