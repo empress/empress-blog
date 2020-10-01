@@ -5,11 +5,10 @@ imageMeta:
   attribution:
   attributionLink:
 featured: true
-authors: 
+authors:
   - <%= author %>
 date: <%= date %>
 tags:
-  - new
 ---
 
 # Write Me
