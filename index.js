@@ -184,6 +184,10 @@ Please generate tags using 'ember generate tag your-tag-name'`);
         .filter(path => path.endsWith('.md'))
         .map(fileName => fileName.replace(/\.md$/, ''));
 
+      if(!_.includes(tags, 'new')) {
+        throw new Error(`We now automatically add the "new" tag to recent posts but you don't have a tag with that id. To create this tag run 'npx ember g tag new'`);
+      }
+
       postTags.forEach((tag) => {
         if(!_.includes(tags, tag)) {
           throw new Error(`You have defined a post with tag "${tag}" but there is no tag with that id. To create this tag run 'npx ember g tag ${tag}'`);
