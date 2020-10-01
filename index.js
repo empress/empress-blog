@@ -14,6 +14,7 @@ const { join } = require('path');
 const AuthorsArray  = require('./lib/authors-array');
 const TagGenerator  = require('./lib/tag-generator');
 const ItemIncludePosts = require('./lib/item-include-posts');
+const AutomaticNewTag = require('./lib/automatic-new-tag');
 
 module.exports = {
   name: require('./package').name,
@@ -70,6 +71,9 @@ module.exports = {
 
     // apply backwards-compatability shim for single author attribute
     contentFolder = new AuthorsArray(contentFolder);
+
+    // automatically add new tag to latest content
+    contentFolder = new AutomaticNewTag(contentFolder);
 
     const contentTree = new StaticSiteJson(contentFolder, {
       type: 'content',
@@ -179,6 +183,10 @@ Please generate tags using 'ember generate tag your-tag-name'`);
       const tags = walkSync(join(appPrefix, 'tag'))
         .filter(path => path.endsWith('.md'))
         .map(fileName => fileName.replace(/\.md$/, ''));
+
+      if(!_.includes(tags, 'new')) {
+        throw new Error(`We now automatically add the "new" tag to recent posts but you don't have a tag with that id. To create this tag run 'npx ember g tag new'`);
+      }
 
       postTags.forEach((tag) => {
         if(!_.includes(tags, tag)) {
