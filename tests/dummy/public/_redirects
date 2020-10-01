@@ -1,1 +1,2 @@
 https://ember-ghost-core.netlify.com/* https://empress-blog.netlify.com/:splat 301!
+https://ember-ghost-core.netlify.app/* https://empress-blog.netlify.app/:splat 301!
