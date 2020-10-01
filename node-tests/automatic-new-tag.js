@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-
 const { createBuilder, createTempDir } = require('broccoli-test-helper');
 
 const AutomaticNewTag = require('../lib/automatic-new-tag');
@@ -76,10 +75,12 @@ tags:
   - a-tag-of-sorts
 authors:
   - ghost
-date: Tue Jun 09 2018 17:50:59 GMT+0100 (IST)
+date: Tue Jun 13 2018 17:50:59 GMT+0100 (IST)
 ---
 # Hello world`
 });
+
+    // first file has new tag
     expect(files['index.md']).to.equal(`---
 tags:
   - a-tag-of-sorts
@@ -89,13 +90,24 @@ authors:
 date: 'Tue Jun 12 2018 17:50:59 GMT+0100 (IST)'
 ---
 # Hello world`)
-
-    expect(files['index5.md']).to.equal(`---
+    // oldest file does not have new tag
+    expect(files['index4.md']).to.equal(`---
 tags:
   - a-tag-of-sorts
 authors:
   - ghost
 date: 'Tue Jun 09 2018 17:50:59 GMT+0100 (IST)'
+---
+# Hello world`)
+
+  // last file alphabetically, but latest post has new tag
+  expect(files['index5.md']).to.equal(`---
+tags:
+  - a-tag-of-sorts
+  - new
+authors:
+  - ghost
+date: 'Tue Jun 13 2018 17:50:59 GMT+0100 (IST)'
 ---
 # Hello world`)
   })
