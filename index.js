@@ -14,6 +14,7 @@ const { join } = require('path');
 const AuthorsArray  = require('./lib/authors-array');
 const TagGenerator  = require('./lib/tag-generator');
 const ItemIncludePosts = require('./lib/item-include-posts');
+const AutomaticNewTag = require('./lib/automatic-new-tag');
 
 module.exports = {
   name: require('./package').name,
@@ -70,6 +71,9 @@ module.exports = {
 
     // apply backwards-compatability shim for single author attribute
     contentFolder = new AuthorsArray(contentFolder);
+
+    // automatically add new tag to latest content
+    contentFolder = new AutomaticNewTag(contentFolder);
 
     const contentTree = new StaticSiteJson(contentFolder, {
       type: 'content',
