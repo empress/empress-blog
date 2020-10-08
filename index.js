@@ -98,7 +98,7 @@ module.exports = {
       collationFileName: 'content.json',
       paginate: blogConfig.paginate,
       paginateSortFunction(a, b) {
-        return b.date - a.date;
+        return new Date(b.data.attributes.date) - new Date(a.data.attributes.date);
       }
     });
 
