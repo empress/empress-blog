@@ -1,3 +1,12 @@
+2.1.0 / 2020-10-08
+==================
+
+  * fix sorting in paginated content #86 from @mansona
+  * remove new tag from newly generated posts #82 from @mansona
+  * adds support for automatic new tags for 4 most recent posts #79 from @jaredgalanis
+  * update ember-responsive-image #80 from @mansona
+  * run lighthouse on CI #78 from @mansona
+
 2.0.0 / 2020-09-03
 ==================
 
