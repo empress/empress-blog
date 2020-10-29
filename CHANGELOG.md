@@ -1,3 +1,8 @@
+2.2.0 / 2020-10-29
+==================
+
+  * replace naive scroll to top implementation with ember-scroll #87 from @nickschot
+
 2.1.0 / 2020-10-08
 ==================
 
