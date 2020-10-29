@@ -7,5 +7,5 @@ export default DS.Model.extend({
   imageMeta: DS.attr(),
   content: DS.attr('string'),
 
-  posts: DS.hasMany('content'),
+  posts: DS.hasMany('content', { inverse: 'tags' }),
 });
