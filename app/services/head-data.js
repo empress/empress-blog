@@ -1,3 +1,4 @@
+/* eslint-disable ember/require-computed-macros, ember/require-computed-property-dependencies, ember/no-get, ember/require-return-from-computed */
 import HeadData from 'ember-meta/services/head-data';
 import { computed, get } from '@ember/object';
 import { getOwner } from '@ember/application';
