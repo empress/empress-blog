@@ -51,7 +51,7 @@ jobs:
 
 before_install:
   - npm config set spin false
-  - npm install -g npm@6
+  - npm install -g npm@7
   - npm --version
   - npm install -g @lhci/cli@0.5.x
 
