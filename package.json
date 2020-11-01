@@ -43,7 +43,6 @@
     "ember-cli-string-utils": "^1.1.0",
     "ember-get-config": "^0.2.4",
     "ember-meta": "^0.5.0",
-    "ember-scroll": "^1.0.0",
     "empress-blueprint-helpers": "^1.2.1",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.20",
