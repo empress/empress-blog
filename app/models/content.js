@@ -1,3 +1,4 @@
+/* eslint-disable ember/use-ember-data-rfc-395-imports, ember/require-computed-macros, ember/no-get */
 import DS from 'ember-data';
 import { get, computed } from '@ember/object';
 

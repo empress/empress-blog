@@ -1,3 +1,4 @@
+/* eslint-disable ember/use-ember-data-rfc-395-imports, ember/require-computed-property-dependencies, ember/no-get */
 import DS from 'ember-data';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
