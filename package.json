@@ -43,6 +43,7 @@
     "ember-cli-htmlbars": "^5.3.1",
     "ember-cli-showdown": "^4.4.4",
     "ember-cli-string-utils": "^1.1.0",
+    "ember-decorators-polyfill": "^1.1.5",
     "ember-get-config": "^0.3.0",
     "ember-meta": "^1.0.0",
     "empress-blueprint-helpers": "^1.2.1",
