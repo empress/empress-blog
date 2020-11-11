@@ -1,6 +1,6 @@
 {
   "name": "empress-blog",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Fully-functional, SEO friendly static site implementation of a blog system built on Ember.",
   "keywords": [
     "ember-addon",
