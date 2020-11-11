@@ -1,3 +1,10 @@
+2.3.0 / 2020-11-11
+==================
+
+  * add stable array of post IDs to the tag model #88 from @nickschot
+  * update with ember-cli-update #90 from @mansona
+  * add basic smoke-test #91 from @mansona
+
 2.2.1 / 2020-11-01
 ==================
 
