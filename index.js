@@ -172,7 +172,9 @@ Please generate tags using 'ember generate tag your-tag-name'`);
         const fileContents = readFileSync(join(appPrefix, 'content', file))
         const frontMatter = yamlFront.loadFront(fileContents);
 
-        postTags.push(frontMatter.tags);
+        if (frontMatter.tags) {
+          postTags.push(frontMatter.tags);
+        }
       });
 
       postTags = _.chain(postTags)
