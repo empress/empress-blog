@@ -1,3 +1,10 @@
+2.3.1 / 2020-11-12
+==================
+
+  * add support for posts without tags #95 from @nickschot
+  * use a separate _primaryTagId attribute to get the correct primaryTag #94 from @nickschot
+  * fix: update Tag serializer to use _postIds instead of postIds #93 from @nickschot
+
 2.3.0 / 2020-11-11
 ==================
 
