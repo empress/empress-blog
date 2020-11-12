@@ -18,8 +18,9 @@ export default DS.Model.extend({
   date: DS.attr('date'),
   tags: DS.hasMany('tag'),
 
-  primaryTag: computed('tags.[]', function() {
-    return this.get('tags.firstObject')
+  _primaryTagId: DS.attr(),
+  primaryTag: computed('tags.[]', '_primaryTagId', function() {
+    return this.get('tags').findBy('id', this.get('_primaryTagId'));
   }),
 
   authors: DS.hasMany('author'),
