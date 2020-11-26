@@ -6,6 +6,7 @@ export default DS.Model.extend({
   image: DS.attr('string'),
   imageMeta: DS.attr(),
   content: DS.attr('string'),
+  html: DS.attr(),
 
   // workaround for unstable ember-data relationship id sorting
   // see: https://discuss.emberjs.com/t/manual-pagination-in-ember-data-relationships/18087
