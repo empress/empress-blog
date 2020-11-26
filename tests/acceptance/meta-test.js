@@ -27,6 +27,10 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Written by');
     assert.dom('head meta[name="twitter:data1"]', document)
       .hasAttribute('content', 'Ghost');
+    assert.dom('head meta[name="twitter:label2"]', document)
+      .hasAttribute('content', 'Filed under');
+    assert.dom('head meta[name="twitter:data2"]', document)
+      .hasAttribute('content', 'Getting Started, Recent posts');
     assert.dom('head link[rel="canonical"]', document)
       .hasAttribute('href', 'https://empress-blog.netlify.com/welcome/');
   })
