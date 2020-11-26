@@ -17,10 +17,6 @@ export default class HeadDataService extends HeadData {
     return currentController.model.post ?? currentController.model;
   }
 
-  get author() {
-    return this.currentRouteMeta?.author?.name
-  }
-
   get title() {
     if(this.routeName === 'tag') {
       return `Tag: ${this.currentRouteMeta.name}`;

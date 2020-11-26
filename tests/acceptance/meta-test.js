@@ -17,6 +17,10 @@ module('Acceptance | meta test', function(hooks) {
 
     assert.dom('head meta[property="og:title"]', document)
       .hasAttribute('content', 'Welcome to empress-blog');
+    assert.dom('head meta[name="twitter:label1"]', document)
+      .hasAttribute('content', 'Written by');
+    assert.dom('head meta[name="twitter:data1"]', document)
+      .hasAttribute('content', 'Ghost');
   })
 
   test('page meta', async function(assert) {
@@ -24,6 +28,10 @@ module('Acceptance | meta test', function(hooks) {
 
     assert.dom('head meta[property="og:title"]', document)
       .hasAttribute('content', 'Built with ❤️ by Chris Manson');
+    assert.dom('head meta[name="twitter:label1"]', document)
+      .hasAttribute('content', 'Written by');
+    assert.dom('head meta[name="twitter:data1"]', document)
+      .hasAttribute('content', 'Chris Manson');
   });
 
   test('author meta', async function(assert) {
