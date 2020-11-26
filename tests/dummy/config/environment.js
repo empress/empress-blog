@@ -24,7 +24,7 @@ module.exports = function(environment) {
     },
 
     blog: {
-      title: "empress-blog",
+      title: "empress-blog: The simple JAM stack blog",
       description: "Thoughts, stories and ideas.",
       coverImage: "/images/blog-cover.jpg",
       navigation: [
