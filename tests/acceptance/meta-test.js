@@ -12,6 +12,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'empress-blog: The simple JAM stack blog');
     assert.dom('head meta[name="description"]', document)
       .hasAttribute('content', 'Thoughts, stories and ideas.');
+    assert.dom('head link[rel="canonical"]', document)
+      .hasAttribute('href', 'https://empress-blog.netlify.com/');
   });
 
   test('content meta', async function(assert) {
@@ -25,6 +27,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Written by');
     assert.dom('head meta[name="twitter:data1"]', document)
       .hasAttribute('content', 'Ghost');
+    assert.dom('head link[rel="canonical"]', document)
+      .hasAttribute('href', 'https://empress-blog.netlify.com/welcome/');
   })
 
   test('page meta', async function(assert) {
@@ -38,6 +42,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Written by');
     assert.dom('head meta[name="twitter:data1"]', document)
       .hasAttribute('content', 'Chris Manson');
+    assert.dom('head link[rel="canonical"]', document)
+      .hasAttribute('href', 'https://empress-blog.netlify.com/page/chris-manson/');
   });
 
   test('author meta', async function(assert) {
@@ -47,6 +53,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Author: Ghost');
     assert.dom('head meta[name="description"]', document)
       .hasAttribute('content', 'You can delete this user to remove all the welcome posts');
+    assert.dom('head link[rel="canonical"]', document)
+      .hasAttribute('href', 'https://empress-blog.netlify.com/author/ghost/');
   });
 
   test('tag meta', async function(assert) {
@@ -56,5 +64,7 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Tag: Getting Started');
     assert.dom('head meta[name="description"]', document)
       .hasAttribute('content', 'A description for the getting-started tag. If you delete this line it will say A collection of X posts where the description should go.');
+    assert.dom('head link[rel="canonical"]', document)
+      .hasAttribute('href', 'https://empress-blog.netlify.com/tag/getting-started/');
   });
 });
