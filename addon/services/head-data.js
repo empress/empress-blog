@@ -1,6 +1,4 @@
-/* eslint-disable ember/require-computed-macros, ember/require-computed-property-dependencies, ember/no-get, ember/require-return-from-computed */
 import HeadData from 'ember-meta/services/head-data';
-import { computed, get } from '@ember/object';
 import { getOwner } from '@ember/application';
 import config from 'ember-get-config';
 
@@ -8,51 +6,67 @@ import { getExcerpt } from '../helpers/excerpt';
 
 const { blog } = config;
 
-export default HeadData.extend({
-  author: computed('routeName', function() {
-    return this.get('currentRouteModel.author.name');
-  }),
+export default class HeadDataService extends HeadData {
+  get config() {
+    return config['blog'];
+  }
 
-  currentRouteModel: computed('routeName', function() {
-    return getOwner(this).lookup(`route:${this.get('routeName')}`).get('currentModel.post') || {};
-  }),
+  get currentRouteMeta() {
+    let currentController = getOwner(this).lookup(`controller:${this.routeName}`)
 
-  description: computed('routeName', function() {
-    let currentModel = this.get('currentRouteModel');
+    return currentController.model.post ?? currentController.model;
+  }
 
-    if(currentModel && get(currentModel, 'html')) {
-      const excerpt = getExcerpt(get(currentModel, 'html'), {
+  get author() {
+    return this.currentRouteMeta?.author?.name
+  }
+
+  get title() {
+    if(this.routeName === 'tag') {
+      return `Tag: ${this.currentRouteMeta.name}`;
+    }
+
+    if(this.routeName === 'author') {
+      return `Author: ${this.currentRouteMeta.name}`;
+    }
+
+    return super.title;
+  }
+
+  get description() {
+    let currentModel = this.currentRouteMeta;
+
+    if(currentModel && currentModel.html) {
+      const excerpt = getExcerpt(currentModel.html, {
         words: 33
       })
       return `${excerpt}...`;
     }
 
     return blog.description;
-  }),
+  }
 
-  slug: computed('routeName', function() {
-    return this.get('currentRouteModel.id');
-  }),
+  get slug() {
+    return this.currentRouteMeta?.id;
+  }
 
-  categories: computed('routeName', function() {
-    let tags = this.get('currentRouteModel.tags')
+  get categories() {
+    return this.currentRouteMeta?.tags?.mapBy('name');
+  }
 
-    if(tags) {
-      return tags.mapBy('name');
-    }
-  }),
-
-  imgSrc: computed('routeName', function() {
+  get imgSrc() {
     let url = blog.host ? `${blog.host}` : '';
 
-    url += this.currentRouteModel.image || blog.rssLogo || blog.logo;
+    url += this.currentRouteMeta.image || blog.rssLogo || blog.logo;
 
     return url;
-  }),
+  }
 
-  url: computed('routeName', function() {
-    if(!blog.host || !this.slug) { return; }
+  get url() {
+    if(!blog.host || !this.slug) { return null; }
 
-    return `${blog.host}/${this.slug}/`;
-  })
-});
+    // we remove any trailing / from the host and add it back in to make sure
+    // that we always have a consistent URL
+    return `${blog.host.replace(/\/$/, '')}/${this.slug}/`;
+  }
+}
