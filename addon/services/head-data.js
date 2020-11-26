@@ -2,7 +2,7 @@ import HeadData from 'ember-meta/services/head-data';
 import { getOwner } from '@ember/application';
 import config from 'ember-get-config';
 
-import { getExcerpt } from '../helpers/excerpt';
+import { getExcerpt, stripHTML } from '../helpers/excerpt';
 
 const { blog } = config;
 
@@ -36,7 +36,8 @@ export default class HeadDataService extends HeadData {
       const excerpt = getExcerpt(currentModel.html, {
         words: 33
       })
-      return `${excerpt}...`;
+
+      return `${excerpt}${excerpt.length !== stripHTML(currentModel.html).length ? '...' : ''}`;
     }
 
     return blog.description;
