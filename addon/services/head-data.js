@@ -60,10 +60,16 @@ export default class HeadDataService extends HeadData {
   }
 
   get url() {
-    if(!blog.host || !this.slug) { return null; }
+    // url is only ever valid if you have a host
+    if(!blog.host) {
+      return null;
+    }
 
     // we remove any trailing / from the host and add it back in to make sure
     // that we always have a consistent URL
-    return `${blog.host.replace(/\/$/, '')}/${this.slug}/`;
+    const normalisedHost = blog.host.replace(/\/$/, '');
+    const normalisedUrl = this.router.currentURL.replace(/\/$/, '');
+
+    return `${normalisedHost}${normalisedUrl}/`;
   }
 }
