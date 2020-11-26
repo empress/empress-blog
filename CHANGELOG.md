@@ -1,3 +1,10 @@
+3.0.0 / 2020-11-26
+==================
+
+This is a breaking change because we drop support for Ember 3.4 in this release.
+
+  * BREAKING: replace naive scroll to top implementation with ember-scroll #97 from @nickschot
+
 2.3.1 / 2020-11-12
 ==================
 
