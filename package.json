@@ -46,6 +46,7 @@
     "ember-decorators-polyfill": "^1.1.5",
     "ember-get-config": "^0.3.0",
     "ember-meta": "^1.0.0",
+    "ember-scroll": "^1.0.2",
     "empress-blueprint-helpers": "^1.2.1",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.20",
