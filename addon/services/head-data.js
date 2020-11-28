@@ -72,4 +72,12 @@ export default class HeadDataService extends HeadData {
 
     return `${normalisedHost}${normalisedUrl}/`;
   }
+
+  get type() {
+    if(this.routeName === 'post') {
+      return 'article';
+    }
+
+    return 'website';
+  }
 }
