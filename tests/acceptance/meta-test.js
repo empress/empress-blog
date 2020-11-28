@@ -33,6 +33,9 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Getting Started, Recent posts');
     assert.dom('head link[rel="canonical"]', document)
       .hasAttribute('href', 'https://empress-blog.netlify.com/welcome/');
+    // I'm not testing the value of conent here to avoid timezone variations
+    assert.dom('head meta[property="article:published_time"]', document)
+      .hasAttribute('content');
   })
 
   test('page meta', async function(assert) {
