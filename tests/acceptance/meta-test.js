@@ -36,6 +36,8 @@ module('Acceptance | meta test', function(hooks) {
     // I'm not testing the value of conent here to avoid timezone variations
     assert.dom('head meta[property="article:published_time"]', document)
       .hasAttribute('content');
+    assert.dom('head meta[property="article:tag"]', document)
+      .hasAttribute('content', 'Getting Started');
   })
 
   test('page meta', async function(assert) {
