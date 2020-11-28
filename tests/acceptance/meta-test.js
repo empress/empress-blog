@@ -14,6 +14,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Thoughts, stories and ideas.');
     assert.dom('head link[rel="canonical"]', document)
       .hasAttribute('href', 'https://empress-blog.netlify.com/');
+    assert.dom('head meta[property="og:type"]', document)
+      .hasAttribute('content', 'website');
   });
 
   test('content meta', async function(assert) {
@@ -38,6 +40,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content');
     assert.dom('head meta[property="article:tag"]', document)
       .hasAttribute('content', 'Getting Started');
+    assert.dom('head meta[property="og:type"]', document)
+      .hasAttribute('content', 'article');
   })
 
   test('page meta', async function(assert) {
@@ -53,6 +57,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Chris Manson');
     assert.dom('head link[rel="canonical"]', document)
       .hasAttribute('href', 'https://empress-blog.netlify.com/page/chris-manson/');
+    assert.dom('head meta[property="og:type"]', document)
+      .hasAttribute('content', 'website');
   });
 
   test('author meta', async function(assert) {
@@ -64,6 +70,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'You can delete this user to remove all the welcome posts');
     assert.dom('head link[rel="canonical"]', document)
       .hasAttribute('href', 'https://empress-blog.netlify.com/author/ghost/');
+    assert.dom('head meta[property="og:type"]', document)
+      .hasAttribute('content', 'website');
   });
 
   test('tag meta', async function(assert) {
@@ -75,5 +83,7 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'A description for the getting-started tag. If you delete this line it will say A collection of X posts where the description should go.');
     assert.dom('head link[rel="canonical"]', document)
       .hasAttribute('href', 'https://empress-blog.netlify.com/tag/getting-started/');
+    assert.dom('head meta[property="og:type"]', document)
+      .hasAttribute('content', 'website');
   });
 });
