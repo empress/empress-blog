@@ -16,6 +16,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('href', 'https://empress-blog.netlify.com/');
     assert.dom('head meta[property="og:type"]', document)
       .hasAttribute('content', 'website');
+    assert.dom('head meta[property="og:image"]', document)
+      .hasAttribute('content', 'https://empress-blog.netlify.com/images/logo.png');
   });
 
   test('content meta', async function(assert) {
@@ -42,6 +44,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'Getting Started');
     assert.dom('head meta[property="og:type"]', document)
       .hasAttribute('content', 'article');
+    assert.dom('head meta[property="og:image"]', document)
+      .hasAttribute('content', 'https://empress-blog.netlify.com/images/welcome.jpg');
   })
 
   test('page meta', async function(assert) {
@@ -59,6 +63,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('href', 'https://empress-blog.netlify.com/page/chris-manson/');
     assert.dom('head meta[property="og:type"]', document)
       .hasAttribute('content', 'website');
+    assert.dom('head meta[property="og:image"]', document)
+      .hasAttribute('content', 'https://empress-blog.netlify.com/images/built-by.jpg');
   });
 
   test('author meta', async function(assert) {
@@ -72,6 +78,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('href', 'https://empress-blog.netlify.com/author/ghost/');
     assert.dom('head meta[property="og:type"]', document)
       .hasAttribute('content', 'website');
+    assert.dom('head meta[property="og:image"]', document)
+      .hasAttribute('content', 'https://empress-blog.netlify.com/images/ghost-icon.png');
   });
 
   test('tag meta', async function(assert) {
@@ -85,5 +93,7 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('href', 'https://empress-blog.netlify.com/tag/getting-started/');
     assert.dom('head meta[property="og:type"]', document)
       .hasAttribute('content', 'website');
+    assert.dom('head meta[property="og:image"]', document)
+      .hasAttribute('content', 'https://empress-blog.netlify.com/images/logo.png');
   });
 });

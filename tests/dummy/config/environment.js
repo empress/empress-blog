@@ -27,6 +27,7 @@ module.exports = function(environment) {
       title: "empress-blog: The simple JAM stack blog",
       description: "Thoughts, stories and ideas.",
       coverImage: "/images/blog-cover.jpg",
+      rssLogo: '/images/logo.png',
       navigation: [
         { label: 'Home', route: 'index' },
         { label: 'Built by Chris Manson', route: 'page', id: 'chris-manson' }
