@@ -18,6 +18,8 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'website');
     assert.dom('head meta[property="og:image"]', document)
       .hasAttribute('content', 'https://empress-blog.netlify.com/images/logo.png');
+    assert.dom('head meta[property="og:site_name"]', document)
+      .hasAttribute('content', 'empress-blog: The simple JAM stack blog');
   });
 
   test('content meta', async function(assert) {
