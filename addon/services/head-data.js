@@ -11,6 +11,10 @@ export default class HeadDataService extends HeadData {
     return config['blog'];
   }
 
+  get siteName() {
+    return this.config.title;
+  }
+
   get currentRouteMeta() {
     let currentController = getOwner(this).lookup(`controller:${this.routeName}`)
 
