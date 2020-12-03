@@ -8,24 +8,25 @@ module('Acceptance | smoke test', function(hooks) {
   test('navigate to all routes', async function(assert) {
     await visit('/');
     assert.equal(currentURL(), '/');
-    assert.dom('head title', document).hasText('empress-blog: The simple JAM stack blog');
+    // test og:title because testem replaces the actual title :(
+    assert.dom('head meta[property="og:title"]', document).hasAttribute('content', 'empress-blog: The simple JAM stack blog');
 
     await click('.post-card-content-link');
     assert.equal(currentURL(), '/welcome');
-    assert.dom('head title', document).hasText('Welcome to empress-blog');
+    assert.dom('head meta[property="og:title"]', document).hasAttribute('content', 'Welcome to empress-blog');
 
     await click('.nav .nav-Built a');
     assert.equal(currentURL(), '/page/chris-manson');
-    assert.dom('head title', document).hasText('Built with ❤️ by Chris Manson');
+    assert.dom('head meta[property="og:title"]', document).hasAttribute('content', 'Built with ❤️ by Chris Manson');
 
     await click('.nav .nav-Home a');
     await click('.static-avatar');
     assert.equal(currentURL(), '/author/ghost');
-    assert.dom('head title', document).hasText('Author: Ghost');
+    assert.dom('head meta[property="og:title"]', document).hasAttribute('content', 'Author: Ghost');
 
     await click('.post-card-image-link');
     await click('.post-full-header a');
     assert.equal(currentURL(), '/tag/getting-started');
-    assert.dom('head title', document).hasText('Tag: Getting Started');
+    assert.dom('head meta[property="og:title"]', document).hasAttribute('content', 'Tag: Getting Started');
   });
 });
