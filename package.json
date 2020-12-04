@@ -102,6 +102,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
+    "after": "ember-meta",
     "before": "prember",
     "demoURL": "https://empress-blog-casper-template.netlify.com"
   }
