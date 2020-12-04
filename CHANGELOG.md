@@ -1,3 +1,8 @@
+3.0.1 / 2020-12-04
+==================
+
+  * Add tests for metadata and fix anything that is obviously wrong #99 from @mansona
+
 3.0.0 / 2020-11-26
 ==================
 
