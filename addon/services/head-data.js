@@ -1,5 +1,6 @@
 import HeadData from 'ember-meta/services/head-data';
 import { getOwner } from '@ember/application';
+import { computed } from '@ember/object';
 import config from 'ember-get-config';
 
 import { getExcerpt, stripHTML } from '../helpers/excerpt';
@@ -11,16 +12,19 @@ export default class HeadDataService extends HeadData {
     return config['blog'];
   }
 
+  @computed('config.title')
   get siteName() {
     return this.config.title;
   }
 
+  @computed('routeName')
   get currentRouteMeta() {
     let currentController = getOwner(this).lookup(`controller:${this.routeName}`)
 
     return currentController.model.post ?? currentController.model;
   }
 
+  @computed('currentRouteMeta.name', 'routeName')
   get title() {
     if(this.routeName === 'tag') {
       return `Tag: ${this.currentRouteMeta.name}`;
@@ -33,6 +37,7 @@ export default class HeadDataService extends HeadData {
     return super.title;
   }
 
+  @computed('currentRouteMeta')
   get description() {
     let currentModel = this.currentRouteMeta;
 
@@ -47,14 +52,17 @@ export default class HeadDataService extends HeadData {
     return blog.description;
   }
 
+  @computed('currentRouteMeta.id')
   get slug() {
     return this.currentRouteMeta?.id;
   }
 
+  @computed('currentRouteMeta.tags')
   get categories() {
     return this.currentRouteMeta?.tags?.mapBy('name');
   }
 
+  @computed('currentRouteMeta.image')
   get imgSrc() {
     let url = blog.host ? `${blog.host}` : '';
 
@@ -63,6 +71,7 @@ export default class HeadDataService extends HeadData {
     return url;
   }
 
+  @computed('router.currentURL')
   get url() {
     // url is only ever valid if you have a host
     if(!blog.host) {
@@ -77,6 +86,7 @@ export default class HeadDataService extends HeadData {
     return `${normalisedHost}${normalisedUrl}/`;
   }
 
+  @computed('routeName')
   get type() {
     if(this.routeName === 'post') {
       return 'article';
