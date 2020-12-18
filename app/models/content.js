@@ -1,29 +1,29 @@
-/* eslint-disable ember/use-ember-data-rfc-395-imports, ember/require-computed-macros, ember/no-get */
-import DS from 'ember-data';
+/* eslint-disable ember/require-computed-macros, ember/no-get */
+import Model, { attr, hasMany } from '@ember-data/model';
 import { get, computed } from '@ember/object';
 
 import { deprecate } from '@ember/application/deprecations';
 
-export default DS.Model.extend({
-  title: DS.attr('string'),
-  canonical: DS.attr(),
-  content: DS.attr('string'),
-  excerpt: DS.attr(),
-  html: DS.attr('string'),
+export default Model.extend({
+  title: attr('string'),
+  canonical: attr(),
+  content: attr('string'),
+  excerpt: attr(),
+  html: attr('string'),
 
-  image: DS.attr('string'),
-  imageMeta: DS.attr(),
-  featured: DS.attr('boolean'),
-  status: DS.attr('string'),
-  date: DS.attr('date'),
-  tags: DS.hasMany('tag'),
+  image: attr('string'),
+  imageMeta: attr(),
+  featured: attr('boolean'),
+  status: attr('string'),
+  date: attr('date'),
+  tags: hasMany('tag'),
 
-  _primaryTagId: DS.attr(),
+  _primaryTagId: attr(),
   primaryTag: computed('tags.[]', '_primaryTagId', function() {
     return this.get('tags').findBy('id', this.get('_primaryTagId'));
   }),
 
-  authors: DS.hasMany('author'),
+  authors: hasMany('author'),
 
   author: computed('authors.[]', function() {
     deprecate(`"author" is deprecated in the content model. You must use "authors" now in your templates.`, false, {

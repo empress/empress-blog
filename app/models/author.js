@@ -1,17 +1,16 @@
-/* eslint-disable ember/use-ember-data-rfc-395-imports */
-import DS from 'ember-data';
+import Model, { attr, hasMany } from '@ember-data/model';
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  image: DS.attr('string'),
-  coverImage: DS.attr('string'),
-  coverMeta: DS.attr(),
-  content: DS.attr('string'),
-  html: DS.attr(),
-  website: DS.attr('string'),
-  twitter: DS.attr('string'),
-  facebook: DS.attr('string'),
-  location: DS.attr('string'),
+export default Model.extend({
+  name: attr('string'),
+  image: attr('string'),
+  coverImage: attr('string'),
+  coverMeta: attr(),
+  content: attr('string'),
+  html: attr(),
+  website: attr('string'),
+  twitter: attr('string'),
+  facebook: attr('string'),
+  location: attr('string'),
 
-  posts: DS.hasMany('content'),
+  posts: hasMany('content'),
 });
