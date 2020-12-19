@@ -1,9 +1,9 @@
-/* eslint-disable ember/use-ember-data-rfc-395-imports, ember/require-computed-property-dependencies, ember/no-get */
-import DS from 'ember-data';
+/* eslint-disable ember/require-computed-property-dependencies, ember/no-get */
+import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default DS.JSONAPIAdapter.extend({
+export default JSONAPIAdapter.extend({
   fastboot: service(),
 
   host: computed('fastboot.isFastBoot', function() {
