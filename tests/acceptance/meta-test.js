@@ -48,6 +48,32 @@ module('Acceptance | meta test', function(hooks) {
       .hasAttribute('content', 'article');
     assert.dom('head meta[property="og:image"]', document)
       .hasAttribute('content', 'https://empress-blog.netlify.com/images/welcome.jpg');
+
+    await visit('/managing-users');
+
+    assert.dom('head meta[property="og:title"]', document)
+      .hasAttribute('content', 'Managing Ghost users');
+    assert.dom('head meta[name="description"]', document)
+      .hasAttribute('content', `empress-blog does not, and will never have the concept of user roles! This is because it is entirely a static system. You can assign authors to posts and generate new ones using...`);
+    assert.dom('head meta[name="twitter:label1"]', document)
+      .hasAttribute('content', 'Written by');
+    assert.dom('head meta[name="twitter:data1"]', document)
+      .hasAttribute('content', 'Chris Manson');
+    assert.dom('head meta[name="twitter:label2"]', document)
+      .hasAttribute('content', 'Filed under');
+    assert.dom('head meta[name="twitter:data2"]', document)
+      .hasAttribute('content', 'Getting Started, Recent posts');
+    assert.dom('head link[rel="canonical"]', document)
+      .hasAttribute('href', 'https://empress-blog.netlify.com/managing-users/');
+    // I'm not testing the value of conent here to avoid timezone variations
+    assert.dom('head meta[property="article:published_time"]', document)
+      .hasAttribute('content');
+    assert.dom('head meta[property="article:tag"]', document)
+      .hasAttribute('content', 'Getting Started');
+    assert.dom('head meta[property="og:type"]', document)
+      .hasAttribute('content', 'article');
+    assert.dom('head meta[property="og:image"]', document)
+      .hasAttribute('content', 'https://empress-blog.netlify.com/images/team.jpg');
   })
 
   test('page meta', async function(assert) {

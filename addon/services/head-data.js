@@ -18,10 +18,13 @@ export default class HeadDataService extends HeadData {
   }
 
   @computed('routeName')
-  get currentRouteMeta() {
-    let currentController = getOwner(this).lookup(`controller:${this.routeName}`)
+  get currentController() {
+    return getOwner(this).lookup(`controller:${this.routeName}`)
+  }
 
-    return currentController.model.post ?? currentController.model;
+  @computed('currentController.model.post')
+  get currentRouteMeta() {
+    return this.currentController.model.post ?? this.currentController.model;
   }
 
   @computed('currentRouteMeta.name', 'routeName')
