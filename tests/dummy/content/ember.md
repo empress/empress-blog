@@ -9,6 +9,7 @@ authors:
   - chris
 date: Tue Jun 12 2018 17:50:59 GMT+0100 (IST)
 tags:
+meta:
 ---
 
 [Ember is a powerful Javascript Framework that is designed to maximise developer productivity](https://emberjs.com/). Ember also has one of the best plugin experiences in the industry, which means you can get a whole lot of functionality with just a simple `npm install`. If you want to check out the power of [Ember's addon ecosystem](https://emberobserver.com/) you can visit [Ember Observer](https://emberobserver.com/) which is made by [Code All Day](http://www.codeallday.com/).

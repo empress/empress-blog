@@ -10,6 +10,7 @@ authors:
 date: Tue Jun 12 2018 17:58:54 GMT+0100 (IST)
 tags:
   - getting-started
+meta:
 ---
 
 empress-blog uses a language called **Markdown** to format text, and so does the original Ghost 🎉

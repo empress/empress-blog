@@ -10,6 +10,7 @@ authors:
 date: Tue Jun 12 2018 17:49:21 GMT+0100 (IST)
 tags:
   - getting-started
+meta:
 ---
 empress-blog currently only supports 2 themes, the default [Casper template](https://github.com/empress/empress-blog-casper-template) and the [Attila template](https://github.com/empress/empress-blog-attila-template). If you want to swap between templates it is as simple as installing a different npm dependency 🎉
 
