@@ -6,6 +6,7 @@ export default class TagModel extends Model {
   @attr() imageMeta;
   @attr() content;
   @attr() html;
+  @attr() meta;
 
   // workaround for unstable ember-data relationship id sorting
   // see: https://discuss.emberjs.com/t/manual-pagination-in-ember-data-relationships/18087

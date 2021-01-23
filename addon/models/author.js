@@ -11,6 +11,7 @@ export default class AuthorModel extends Model {
   @attr() twitter;
   @attr() facebook;
   @attr() location;
+  @attr() meta;
 
   @hasMany('content') posts;
 }
