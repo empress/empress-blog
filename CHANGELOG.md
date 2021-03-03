@@ -1,3 +1,11 @@
+3.1.0 / 2021-03-03
+==================
+
+  * Add Page Blueprint #104 from @elwayman02
+  * [internal] move from travis to github ci #110 from @mansona
+  * fix page title/meta not updating correctly when only the model changes #102 from @nickschot
+  * [internal] fix some of the ember/use-ember-data-rfc-395-imports ignored rules #100 from @mansona
+
 3.0.1 / 2020-12-04
 ==================
 
