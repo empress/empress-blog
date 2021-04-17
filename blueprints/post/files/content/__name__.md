@@ -11,6 +11,4 @@ date: <%= date %>
 tags:
 ---
 
-# Write Me
-
 Good luck on your new post!
