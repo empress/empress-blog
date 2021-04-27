@@ -19,6 +19,12 @@ const AutomaticNewTag = require('./lib/automatic-new-tag');
 module.exports = {
   name: require('./package').name,
 
+  includedCommands: function() {
+    return {
+      'empress-blog:import': require('./lib/import.js'),
+    }
+  },
+
   config() {
     return {
       blog: {},

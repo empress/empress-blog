@@ -36,7 +36,7 @@ npm init ember-app super-blog
 cd super-blog
 
 # you can replace the template with the one you want to use
-npx ember-cli install empress-blog empress-blog-casper-template
+npx ember install empress-blog empress-blog-casper-template
 ```
 
 It will ask you if you want to update the `index.html` file and you should say yes 👍
@@ -62,7 +62,7 @@ This addon comes with helpful blueprints to generate posts and authors for you i
 expects. The first thing you should do is generate an author as follows:
 
 ```sh
-ember g author your-name
+npx ember g author your-name
 ```
 
 Then you should be able to edit the file `author/your-name.md` to update the details.
@@ -71,7 +71,7 @@ Next you will want to generate some posts. If you only have one author generated
 blog) you can generate a post as simply as running:
 
 ```sh
-ember g post "this is a post I want to write"
+npx ember g post "this is a post I want to write"
 ```
 
 ### Configuring
@@ -149,6 +149,29 @@ and I'd be happy to help you. You can check out the documentation for
 
 If you do end up writing an empress-blog template please let us know so I can
 include your template in a list of existing templates.
+
+Importing content
+------------------------------------------------------------------------------
+
+If you would like to import your blog content from another platform into
+empress-blog we have a beta import function that we would love for people to try
+out and give feedback. It requires that you create an export file from your
+respective blog platform and then run the following command from the command
+line:
+
+```sh
+npx ember empress-blog:import --type=[import_type] [dump_file]
+```
+
+Currently available `import_type`s are:
+ - [Ghost](https://ghost.org/faq/the-importer/)
+ - [WordPress](https://en.support.wordpress.com/export/)
+ - [Tumblr](https://tumblr.zendesk.com/hc/en-us/articles/360005118894-Export-your-blog)
+
+**Note:** When exporting a Tumblr blog you will be downloading a zip file which
+you need to unpack. Once you unpack your export zip file you will find a
+`posts.zip` file which also needs to be unpacked. Your `dump_file` will be the
+resulting `posts.xml` file.
 
 Upgrade notes
 ------------------------------------------------------------------------------
