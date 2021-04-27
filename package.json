@@ -73,7 +73,7 @@
     "ember-moment": "^7.8.1",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
-    "ember-responsive-image": "^1.0.0-rc.6",
+    "ember-responsive-image": "^1.0.1",
     "ember-source": "~3.9.0",
     "ember-source-channel-url": "^1.1.0",
     "ember-try": "^1.2.1",
