@@ -1,3 +1,11 @@
+3.2.0 / 2021-04-27
+==================
+
+  * Add Import scripts for Ghost, WordPress, and Tumblr #42 from @mansona
+  * Move blog and url services to addon folder #118 from @jelhan
+  * remove duplicate header from post blueprint #117 from @mansona
+  * Use actual local image embed when mentioned in guide content #111 from @elwayman02
+
 3.1.0 / 2021-03-03
 ==================
 
