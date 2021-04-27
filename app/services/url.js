@@ -1,7 +1,7 @@
 import Service from '@ember/service';
 import { computed } from '@ember/object';
 
-import config from '../config/environment';
+import config from 'ember-get-config';
 
 export default Service.extend({
   prefix: computed(function() {
