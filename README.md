@@ -71,7 +71,7 @@ Next you will want to generate some posts. If you only have one author generated
 blog) you can generate a post as simply as running:
 
 ```sh
-npx ember g post "this is a post I want to write"
+npx ember g post "this is a post I want to write" --author=your-name
 ```
 
 ### Configuring
