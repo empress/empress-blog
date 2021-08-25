@@ -10,80 +10,72 @@ on:
 
 env:
   NODE_VERSION: 10
+  FORCE_COLOR: 1
 
 jobs:
   lint:
-    name: Tests and linting
+    name: Linting
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
-      - name: Check out a copy of the repo
-        uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2-beta
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - run: npm i -g npm@7
+      - run: npm ci
+      - run: npm run lint
 
-      - name: Cache npm cache and node_modules
-        id: cache-dependencies
-        uses: actions/cache@v2
+  floating-dependencies:
+    name: Floating Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-${{ env.NODE_VERSION }}-
+          node-version: ${{ env.NODE_VERSION }}
+      - run: npm i -g npm@7
+      - run: npm install --no-package-lock
+      - run: npm run test:ember
 
-      - name: global dependencies
-        run: npm i -g npm@7 @lhci/cli@0.5.x
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mansona/npm-lockfile-version@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: npm i -g npm@7
+      - run: npm ci
+      - run: npm run test:ember
 
-      - name: Install dependencies
-        run: npm ci
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test:ember
-
-      - name: Lighthouse CI
-        run: npm run build && lhci autorun
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mansona/npm-lockfile-version@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - run: npm i -g npm@7 @lhci/cli@0.5.x
+      - run: npm ci
+      - run: npm run build && lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
 
-
-  test-addon-floating:
-    name: Floating Dependencies
+  try-scenarios:
+    name: "ember-try: ${{ matrix.ember-try-scenario }}"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Check out a copy of the repo
-        uses: actions/checkout@v2
+    timeout-minutes: 15
+    needs: test
 
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: update npm
-        run: npm i -g npm@7
-
-      - name: Install dependencies
-        run: npm install --no-package-lock
-
-      - name: Test
-        run: npm run test:ember
-
-  test-compatibility:
-    name: Test compatibility
-    runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        scenario:
+        ember-try-scenario:
           - 'ember-lts-3.8'
           - 'ember-lts-3.12'
           - 'ember-lts-3.16'
@@ -93,32 +85,12 @@ jobs:
           - 'ember-canary'
           - 'ember-default-with-jquery'
           - 'ember-classic'
-    timeout-minutes: 7
     steps:
-      - name: Check out a copy of the repo
-        uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2-beta
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Cache npm cache and node_modules
-        id: cache-dependencies
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-${{ matrix.scenario }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-${{ env.NODE_VERSION }}-${{ matrix.scenario }}-
-
-      - name: update npm
-        run: npm i -g npm@7
-
-      - name: Install dependencies
-        run: npm ci
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-
-      - name: Test
-        run: npx ember try:one ${{ matrix.scenario }}
+      - run: npm i -g npm@7
+      - run: npm ci
+      - name: test
+        run: node_modules/.bin/ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
