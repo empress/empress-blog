@@ -31,7 +31,7 @@ Quick Start
 ------------------------------------------------------------------------------
 
 ```sh
-npm init ember-app super-blog
+npx ember-cli@latest new super-blog
 
 cd super-blog
 
