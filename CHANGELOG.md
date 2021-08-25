@@ -1,3 +1,10 @@
+3.2.1 / 2021-08-25
+==================
+
+  * cleanup github ci #131 from @mansona
+  * Fix import of htmlsafe #128 from @bracke
+  * update lint-to-the-future #127 from @mansona
+
 3.2.0 / 2021-04-27
 ==================
 
