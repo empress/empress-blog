@@ -3,7 +3,7 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
 import { get, computed } from '@ember/object';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 
 export default Controller.extend({
   blog: service(),
