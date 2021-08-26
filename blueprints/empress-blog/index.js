@@ -2,6 +2,42 @@
 const path = require('path');
 const stringUtils = require('ember-cli-string-utils');
 const { applyBuildConfig, applyConfig } = require('empress-blueprint-helpers');
+const recast = require('recast');
+const { readFileSync, writeFileSync } = require('fs');
+
+function applyNodeCurrentTarget(isEmberCLIAddon) {
+  let targetsFile = './config/targets.js'
+
+  if(isEmberCLIAddon) {
+    targetsFile = './tests/dummy/config/targets.js';
+  }
+
+  const targetsAst = recast.parse(readFileSync(targetsFile));
+
+  recast.visit(targetsAst, {
+    visitAssignmentExpression (path) {
+      let node = path.node;
+
+      if (node.left.object.name === 'module' && node.left.property.name === 'exports') {
+        let nodeProperty = node.right.properties.find(property => property.key.name === 'node');
+
+        if(!nodeProperty) {
+          let builders = recast.types.builders;
+          nodeProperty = builders.property(
+            'init',
+            builders.identifier('node'),
+            builders.literal('current')
+          );
+          node.right.properties.push(nodeProperty);
+        }
+      }
+
+      this.traverse(path);
+    }
+  });
+
+  writeFileSync(targetsFile, recast.print(targetsAst, { tabWidth: 2, quote: 'single' }).code);
+}
 
 module.exports = {
   description: 'The default blueprint for empress-blog.',
@@ -60,6 +96,8 @@ module.exports = {
         id: 'chris-manson'
       }]
     });
+
+    applyNodeCurrentTarget(this.project.isEmberCLIAddon());
   },
 
   filesToRemove: ['app/templates/application.hbs'],
