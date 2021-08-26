@@ -1,3 +1,9 @@
+3.3.0 / 2021-08-26
+==================
+
+  * fix htmlSafe import #133 from @mansona
+  * add `node: current` to targets on install of empress-blog #132 from @mansona
+
 3.2.1 / 2021-08-25
 ==================
 
