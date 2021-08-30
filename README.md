@@ -36,7 +36,7 @@ npx ember-cli@latest new super-blog
 cd super-blog
 
 # you can replace the template with the one you want to use
-npx ember install empress-blog empress-blog-casper-template
+npx ember install empress-blog-casper-template
 ```
 
 It will ask you if you want to update the `index.html` file and you should say yes 👍
