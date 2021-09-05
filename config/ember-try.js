@@ -89,7 +89,24 @@ module.exports = async function() {
             edition: 'classic'
           }
         }
-      }
+      },
+      {
+        name: 'no-deprecations',
+        npm: {
+          devDependencies: {
+            'ember-deprecation-error': '*',
+          },
+        },
+      },
+      {
+        name: 'ember-release-no-deprecations',
+        npm: {
+          devDependencies: {
+            'ember-source': await getChannelURL('release'),
+            'ember-deprecation-error': '*',
+          },
+        },
+      },
     ]
   };
 };

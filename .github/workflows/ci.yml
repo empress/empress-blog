@@ -85,6 +85,8 @@ jobs:
           - 'ember-canary'
           - 'ember-default-with-jquery'
           - 'ember-classic'
+          - 'no-deprecations'
+          - 'ember-release-no-deprecations'
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
