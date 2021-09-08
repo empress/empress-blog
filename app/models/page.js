@@ -1,3 +1,1 @@
-import contentModel from './content';
-
-export default contentModel.extend({});
+export { default } from 'empress-blog/models/page';
