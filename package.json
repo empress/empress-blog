@@ -33,7 +33,7 @@
     "broccoli-funnel": "^3.0.3",
     "broccoli-merge-trees": "^4.2.0",
     "broccoli-plugin": "^4.0.3",
-    "broccoli-static-site-json": "^4.2.0",
+    "broccoli-static-site-json": "^4.3.0",
     "broccoli-static-site-json-xml": "^1.0.1",
     "case": "^1.6.1",
     "downsize-cjs": "^0.1.1",
