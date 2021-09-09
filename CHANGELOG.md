@@ -1,3 +1,11 @@
+3.4.0 / 2021-09-09
+==================
+
+  * Allow Arbitrary Metadata for All Content #142 from @mansona
+  * update models to classes #141 from @mansona
+  * add ember-try scenarios for deprecations #139 from @mansona
+  * add a test with latest ember and ember-data #134 from @mansona
+
 3.3.0 / 2021-08-26
 ==================
 
