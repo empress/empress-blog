@@ -12,6 +12,7 @@ export default class ContentModel extends Model {
   @attr('boolean') featured;
   @attr() status;
   @attr('date') date;
+  @attr() meta;
 
   @attr() _primaryTagId;
 
