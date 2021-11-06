@@ -262,7 +262,7 @@ Please generate tags using 'ember generate tag your-tag-name'`);
       .map(tag => `/tag/${tag}`)
       .value();
 
-    const contentUrls = content.map(file => file.replace(/\.md$/, ''));
+    const contentUrls = content.map(file => file.replace(/\.md$/, '')).map(file => `/${file}`);
 
     const pageUrls = walkSync(join(appPrefix, 'page'), {
       globs: ['*.md'],
