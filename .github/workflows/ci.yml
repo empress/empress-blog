@@ -3,52 +3,41 @@ name: CI
 on:
   push:
     branches:
+      - main
       - master
-    tags:
-      - v[0-9]+.[0-9]+.[0-9]+
-  pull_request:
-
-env:
-  NODE_VERSION: 10
-  FORCE_COLOR: 1
+  pull_request: {}
 
 jobs:
-  lint:
-    name: Linting
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - run: npm i -g npm@7
-      - run: npm ci
-      - run: npm run lint
-
   floating-dependencies:
-    name: Floating Dependencies
+    name: "Floating Dependencies"
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 12.x
+          cache: npm
       - run: npm i -g npm@7
       - run: npm install --no-package-lock
       - run: npm run test:ember
 
   test:
-    name: Tests
+    name: "Tests"
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - uses: mansona/npm-lockfile-version@v1
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 12.x
+          cache: npm
       - run: npm i -g npm@7
       - run: npm ci
+      - run: npm run lint
       - run: npm run test:ember
+
 
   lighthouse:
     name: Lighthouse CI
@@ -58,7 +47,7 @@ jobs:
       - uses: mansona/npm-lockfile-version@v1
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 12.x
       - run: npm i -g npm@7 @lhci/cli@0.5.x
       - run: npm ci
       - run: npm run build && lhci autorun
@@ -67,33 +56,35 @@ jobs:
           LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
 
   try-scenarios:
-    name: "ember-try: ${{ matrix.ember-try-scenario }}"
+    name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    needs: test
+    needs: 'test'
 
     strategy:
       fail-fast: false
       matrix:
-        ember-try-scenario:
-          - 'ember-lts-3.8'
-          - 'ember-lts-3.12'
-          - 'ember-lts-3.16'
-          - 'ember-lts-3.20'
-          - 'ember-release'
-          - 'ember-data-latest'
-          - 'ember-beta'
-          - 'ember-canary'
-          - 'ember-default-with-jquery'
-          - 'ember-classic'
-          - 'no-deprecations'
-          - 'ember-release-no-deprecations'
+        try-scenario:
+          - ember-lts-3.8
+          - ember-lts-3.12
+          - ember-lts-3.16
+          - ember-lts-3.20
+          - ember-release
+          - ember-data-latest
+          - ember-beta
+          - ember-canary
+          - ember-classic
+          - ember-default-with-jquery
+          - no-deprecations
+          - ember-release-no-deprecations
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 12.x
+          cache: npm
       - run: npm i -g npm@7
       - run: npm ci
       - name: test
-        run: node_modules/.bin/ember try:one ${{ matrix.ember-try-scenario }} --skip-cleanup
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
