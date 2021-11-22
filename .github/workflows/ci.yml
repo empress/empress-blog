@@ -21,6 +21,7 @@ jobs:
       - run: npm i -g npm@7
       - run: npm install --no-package-lock
       - run: npm run test:ember
+      - run: npm run test:node
 
   test:
     name: "Tests"
