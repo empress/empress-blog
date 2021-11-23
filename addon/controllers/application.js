@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-classic-classes, prettier/prettier */
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
