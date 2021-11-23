@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const { expect } = require('chai');
 
 const { createBuilder, createTempDir } = require('broccoli-test-helper');

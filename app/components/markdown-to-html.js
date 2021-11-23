@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import MarkdownToHTML from 'ember-cli-showdown/components/markdown-to-html';
 
 export default MarkdownToHTML.extend({
