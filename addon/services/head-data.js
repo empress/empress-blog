@@ -1,3 +1,4 @@
+/* eslint-disable ember/no-computed-properties-in-native-classes, prettier/prettier */
 import HeadData from 'ember-meta/services/head-data';
 import { getOwner } from '@ember/application';
 import { computed } from '@ember/object';

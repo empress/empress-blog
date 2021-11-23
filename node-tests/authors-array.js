@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const { modifyFile } = require('../lib/authors-array');
 const { expect } = require('chai');
 

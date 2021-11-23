@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Model, { attr, hasMany } from '@ember-data/model';
 import { deprecate } from '@ember/application/deprecations';
 

@@ -1,4 +1,4 @@
-/* eslint-disable ember/require-computed-property-dependencies, ember/no-get */
+/* eslint-disable ember/no-classic-classes, prettier/prettier, ember/require-computed-property-dependencies, ember/no-get */
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
