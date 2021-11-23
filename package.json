@@ -40,7 +40,7 @@
     "broccoli-static-site-json-xml": "^1.0.1",
     "case": "^1.6.1",
     "downsize-cjs": "^0.1.1",
-    "ember-auto-import": "^1.11.3",
+    "ember-auto-import": "^1.11.3 || ^2.0.0",
     "ember-body-class": "^2.1.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
@@ -71,7 +71,6 @@
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-test-helper": "^2.0.0",
     "chai": "^4.2.0",
-    "ember-auto-import": "^1.6.0",
     "ember-cli": "~3.28.4",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-fastboot": "^3.2.0-beta.4",
@@ -106,7 +105,8 @@
     "prember": "^1.0.2",
     "prettier": "^2.3.2",
     "qunit": "^2.16.0",
-    "qunit-dom": "^1.6.0"
+    "qunit-dom": "^1.6.0",
+    "webpack": "^5.52.1"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
