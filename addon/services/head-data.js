@@ -40,6 +40,11 @@ export default class HeadDataService extends HeadData {
     return super.title;
   }
 
+  @computed('currentRouteMeta.authors.[]')
+  get author() {
+    return this.currentRouteMeta.authors?.firstObject;
+  }
+
   @computed('currentRouteMeta')
   get description() {
     let currentModel = this.currentRouteMeta;
