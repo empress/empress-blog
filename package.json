@@ -86,7 +86,7 @@
     "ember-page-title": "^6.2.2",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
-    "ember-source": "~3.28.0",
+    "ember-source": "file:./ember-source-3.28.7-mixonic-explicit-injection-not-deprecated+ae15deb1.tgz",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^3.6.0",
     "ember-try": "^1.4.0",
