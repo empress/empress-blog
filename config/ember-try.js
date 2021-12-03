@@ -115,6 +115,7 @@ module.exports = async function () {
         name: 'no-deprecations',
         npm: {
           devDependencies: {
+            'ember-source': '~3.28.0',
             'ember-deprecation-error': '*',
           },
         },
