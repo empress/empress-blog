@@ -1,3 +1,12 @@
+4.0.0 / 2021-12-06
+==================
+
+  * Drop support for Ember < 3.16 and update with ember-cli-update #147 from @mansona
+  * update ember-body-class #150 from @mansona
+  * Drop support for Node 10 and update github action to be more like blueprint #146 from @mansona
+
+This version adds support for Ember 4.0 🎉
+
 3.4.0 / 2021-09-09
 ==================
 
