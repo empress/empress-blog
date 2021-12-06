@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier, ember/no-classic-classes */
 import Service from '@ember/service';
 import { computed, get } from '@ember/object';
 

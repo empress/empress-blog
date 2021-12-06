@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Router from '../router';
 
 export function initialize() {

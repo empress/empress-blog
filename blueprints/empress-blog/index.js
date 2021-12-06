@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier, ember/no-string-prototype-extensions */
 /* eslint-env node */
 const path = require('path');
 const stringUtils = require('ember-cli-string-utils');
