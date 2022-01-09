@@ -1,3 +1,8 @@
+4.1.0 / 2022-01-09
+==================
+
+  * make sure prember urls are prefixed with a / #145 from @mansona
+
 4.0.0 / 2021-12-06
 ==================
 
