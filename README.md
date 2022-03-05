@@ -42,9 +42,9 @@ npx ember install empress-blog empress-blog-casper-template
 It will ask you if you want to update the `index.html` file and you should say yes 👍
 
 If you want to see the blog system running on your local machine just run `npm start` and you will
-be able to navigate to  [http://localhost:4200](http://localhost:4200) to see the blog in action.
+be able to navigate to [http://localhost:4200](http://localhost:4200) to see the blog in action.
 
-**Note:** you need `npm@6.1` or later run this quick start. You can update with `npm install -g npm@latest` or check the [official docs](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
+**Note:** you need `npm@6.1` or later to run this quick start. You can update with `npm install -g npm@latest` or check the [official docs](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
 
 To build the static output directory, run the **standard** build process for a production Ember application:
 ```
@@ -109,9 +109,9 @@ This example config shows you how to set a title and general description for you
 ### Configuring your host & enabling RSS
 The above configuration allows you to make your blog look a lot better but there is one piece of configuration that will enable some awesome features like automatically creating an RSS feed for you 🎉
 
-Although because of the nature of some RSS aggregators you need to be *very* careful with this because it can mess up a cache that you have no control over, this is why it's dealt with differently than the above.
+Although, due to the nature of some RSS aggregators, you need to be *very* careful with this because it can mess up a cache that you have no control over. This is why it's dealt with differently than the above.
 
-If you're not familiar with Ember configuration, you are able to specific some environment config *depending on what environment you are targeting*. This allows you to have some config only available in production (like Google Analytics for example).
+If you're not familiar with Ember configuration, you are able to specify some environment configs *depending on what environment you are targeting*. This allows you to have some configs only available in production (like Google Analytics for example).
 
 If you go to the end of your `config/environment.js` file you will see something that is checking if the environment is `production`. You can add your host config to the blog config object as follows:
 
@@ -124,7 +124,7 @@ if (environment === 'production') {
 }
 ```
 
-when ember-casper-template sees that you have host defined it will start generating the rss feed.
+When ember-casper-template sees that you have a host defined it will start generating the rss feed.
 
 Custom Themes
 ------------------------------------------------------------------------------
