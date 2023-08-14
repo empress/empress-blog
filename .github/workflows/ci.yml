@@ -7,14 +7,35 @@ on:
       - master
   pull_request: {}
 
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  floating-dependencies:
+  test:
+    name: "Tests"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mansona/npm-lockfile-version@v1
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 12.x
+          cache: npm
+      - run: npm i -g npm@7
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:ember
+      - run: npm run test:node
+
+  floating:
     name: "Floating Dependencies"
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 12.x
           cache: npm
@@ -23,30 +44,13 @@ jobs:
       - run: npm run test:ember
       - run: npm run test:node
 
-  test:
-    name: "Tests"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: mansona/npm-lockfile-version@v1
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 12.x
-          cache: npm
-      - run: npm i -g npm@7
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run test:ember
-
-
   lighthouse:
     name: Lighthouse CI
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: mansona/npm-lockfile-version@v1
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 12.x
       - run: npm i -g npm@7 @lhci/cli@0.5.x
@@ -60,7 +64,7 @@ jobs:
     name: ${{ matrix.try-scenario }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    needs: 'test'
+    needs: "test"
 
     strategy:
       fail-fast: false
@@ -69,22 +73,24 @@ jobs:
           - ember-lts-3.16
           - ember-lts-3.20
           - ember-lts-3.24
+          - ember-lts-3.28
           - ember-release
           - ember-data-latest
           - ember-beta
           - ember-canary
           - ember-classic
-          - ember-default-with-jquery
+          - embroider-safe
+          - embroider-optimized
           - no-deprecations
           - ember-release-no-deprecations
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 12.x
           cache: npm
       - run: npm i -g npm@7
       - run: npm ci
-      - name: test
+      - name: Run Tests
         run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
