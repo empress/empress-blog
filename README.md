@@ -1,5 +1,4 @@
-empress-blog
-==============================================================================
+# empress-blog
 
 > **Note:** if you have come here wanting to use empress-blog for your own blog then [skip down to the quick-start](#quick-start). You do **not** need to clone this repo to get started, you only need to clone this repo if you want to develop empress-blog 🎉
 
@@ -19,16 +18,15 @@ If you want an example of the this "in production" then check out the [Chris Man
 You do not need to be a web developer to be able to use this system. You just write markdown files
 and the rest of the work is performed by EmberJS' build system.
 
-Super Quick Start
-------------------------------------------------------------------------------
+## Super Quick Start
+
 If you want to get your new empress-blog blog deployed on [Netlify](https://www.netlify.com/) in less than a minute then you can just click this button:
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/empress/empress-blog-netlify-casper-template)
 
 If you want to instead work with your blog locally before deploying then you can continue reading
 
-Quick Start
-------------------------------------------------------------------------------
+## Quick Start
 
 ```sh
 npx ember-cli@latest new super-blog
@@ -52,9 +50,7 @@ npm run build -- -prod
 ```
 This will generate a fully static output of your site in the `dist` folder.
 
-
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 ### Creating Content
 
@@ -126,8 +122,7 @@ if (environment === 'production') {
 
 When ember-casper-template sees that you have a host defined it will start generating the rss feed.
 
-Custom Themes
-------------------------------------------------------------------------------
+## Custom Themes
 
 If you are interested in writing your own theme for empress-blog you can get
 started using
@@ -150,8 +145,7 @@ and I'd be happy to help you. You can check out the documentation for
 If you do end up writing an empress-blog template please let us know so I can
 include your template in a list of existing templates.
 
-Importing content
-------------------------------------------------------------------------------
+## Importing content
 
 If you would like to import your blog content from another platform into
 empress-blog we have a beta import function that we would love for people to try
@@ -173,8 +167,7 @@ you need to unpack. Once you unpack your export zip file you will find a
 `posts.zip` file which also needs to be unpacked. Your `dump_file` will be the
 resulting `posts.xml` file.
 
-Upgrade notes
-------------------------------------------------------------------------------
+## Upgrade notes
 
 If you are upgrading from empress-blog@1.x and you start to get some errors
 along the lines of:
@@ -195,13 +188,11 @@ and therefore it supported all the helpers that Ghost provided for templates by
 default. Now you can optionally add support for these helpers which is
 particularly useful if you are porting a template from Ghost.
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
