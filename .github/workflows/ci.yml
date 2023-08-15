@@ -75,11 +75,11 @@ jobs:
           - ember-lts-3.24
           - ember-lts-3.28
           - ember-lts-4.4
+          - ember-lts-4.8
           - ember-release
           - ember-data-latest
           - ember-beta
           - ember-canary
-          - ember-classic
           - embroider-safe
           - embroider-optimized
           - no-deprecations
