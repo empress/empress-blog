@@ -13,5 +13,6 @@ export default class AuthorModel extends Model {
   @attr() location;
   @attr() meta;
 
-  @hasMany('content') posts;
+  @hasMany('content', { polymorphic: true, async: true, inverse: 'authors' })
+  posts;
 }
