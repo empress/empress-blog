@@ -68,7 +68,7 @@ export default class HeadDataService extends HeadData {
 
   @computed('currentRouteMeta.tags')
   get categories() {
-    return this.currentRouteMeta?.tags?.mapBy('name');
+    return this.currentRouteMeta?.tags?.map(item => item.name);
   }
 
   @computed('currentRouteMeta.image')
