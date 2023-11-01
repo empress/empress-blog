@@ -41,25 +41,25 @@
     "broccoli-static-site-json": "^4.2.0",
     "broccoli-static-site-json-xml": "^1.0.1",
     "case": "^1.6.1",
-    "downsize-cjs": "^0.1.1",
+    "downsize-cjs": "^1.0.1",
     "ember-auto-import": "^2.6.3",
-    "ember-body-class": "^2.1.1",
+    "ember-body-class": "^3.0.0",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.2.0",
-    "ember-cli-showdown": "^6.0.0",
+    "ember-cli-showdown": "^7.0.0",
     "ember-cli-string-utils": "^1.1.0",
     "ember-decorators-polyfill": "^1.1.5",
-    "ember-get-config": "^0.5.0",
+    "ember-get-config": "^2.1.1",
     "ember-meta": "^2.0.0",
     "ember-scroll": "^1.0.2",
     "empress-blueprint-helpers": "^1.2.1",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.20",
-    "recast": "^0.17.6",
+    "recast": "^0.23.4",
     "require-directory": "^2.1.1",
     "resolve": "^1.10.1",
-    "walk-sync": "^2.2.0",
-    "xml2js": "^0.4.19",
+    "walk-sync": "^3.0.0",
+    "xml2js": "^0.6.2",
     "yaml-front-matter": "^4.0.0"
   },
   "devDependencies": {
@@ -127,5 +127,7 @@
     "before": "prember",
     "demoURL": "https://empress-blog-casper-template.netlify.com"
   },
-  "fastbootDependencies": ["crypto"]
+  "fastbootDependencies": [
+    "crypto"
+  ]
 }
