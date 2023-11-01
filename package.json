@@ -53,7 +53,7 @@
     "ember-meta": "^2.0.0",
     "ember-scroll": "^1.0.2",
     "empress-blueprint-helpers": "^1.2.1",
-    "js-yaml": "^3.13.1",
+    "js-yaml": "^4.1.0",
     "lodash": "^4.17.20",
     "recast": "^0.23.4",
     "require-directory": "^2.1.1",
