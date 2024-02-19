@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
-    "changelog": "auto-changelog --template changelog.template --unreleased-only --prepend --load-github-issue-data --github-cache-dir .changelog",
+    "ember-compatibility-tests": "ember try:each",
     "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
     "lint:css": "stylelint \"**/*.css\"",
     "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
@@ -31,7 +31,6 @@
     "start": "ember serve",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
     "test:ember": "ember test",
-    "ember-compatibility-tests": "ember try:each",
     "test:node": "mocha node-tests"
   },
   "dependencies": {
@@ -71,7 +70,6 @@
     "@embroider/test-setup": "^3.0.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "auto-changelog": "github:mansona/auto-changelog#epic",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-test-helper": "^2.0.0",
     "chai": "^4.2.0",
@@ -107,6 +105,7 @@
     "prettier": "^2.8.7",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
+    "release-plan": "^0.8.0",
     "stylelint": "^15.4.0",
     "stylelint-config-standard": "^32.0.0",
     "stylelint-prettier": "^3.0.0",
