@@ -50,7 +50,7 @@
     "ember-decorators-polyfill": "^1.1.5",
     "ember-get-config": "^2.1.1",
     "ember-meta": "^2.0.0",
-    "ember-scroll": "^1.0.2",
+    "ember-scroll": "^1.0.3",
     "empress-blueprint-helpers": "^1.2.1",
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.20",
