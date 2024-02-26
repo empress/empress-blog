@@ -10,6 +10,14 @@ authors:
 date: Tue Jun 12 2018 17:50:55 GMT+0100 (IST)
 tags:
   - getting-started
+meta:
+    sections:
+    - Special formatting
+    - Writing code blocks
+    - Full bleed images
+    - Reference lists
+    - Full HTML
+    - Metadata
 ---
 
 There are lots of powerful things you can do with the Markdown
@@ -69,3 +77,45 @@ Another way to insert links in markdown is using reference lists. You might want
 Perhaps the best part of Markdown is that you're never limited to just Markdown. You can write HTML directly in the Ghost editor and it will just work as HTML usually does. No limits! Here's a standard YouTube embed code as an example:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Cniqsc9QfDo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+
+## Metadata
+
+You may notice that all of your markdown files start with a top section like so:
+
+```
+---
+name: Ghost
+id: ghost
+image: /images/ghost-icon.png
+cover:
+website: https://github.com/empress/empress-blog
+---
+```
+
+This format is called Front Matter, and it allows you to define important metadata used to set up your authors, content, pages, and tags. In addition to the expected attributes for each type of file, you can also define arbitrary metadata using the `meta` attribute. For example, this article's Front Matter is as follows:
+
+```
+---
+title: Advanced Markdown tips
+image: /images/advanced.jpg
+imageMeta:
+  attribution:
+  attributionLink:
+featured: true
+authors:
+  - ghost
+date: Tue Jun 12 2018 17:50:55 GMT+0100 (IST)
+tags:
+  - getting-started
+meta:
+  sections:
+    - Special formatting
+    - Writing code blocks
+    - Full bleed images
+    - Reference lists
+    - Full HTML
+---
+```
+
+As you can see, `meta` follows the same formatting of other attributes; it can be a string, object, array, or any combination of such. The `meta` attribute is not used for anything by default, it is there as an advanced feature so that if you are building custom features for your empress-blog, you can access `meta` from the ember-data models.
