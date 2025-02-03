@@ -29,7 +29,7 @@ If you want to instead work with your blog locally before deploying then you can
 ## Quick Start
 
 ```sh
-npx ember-cli@latest new super-blog
+npx ember-cli@4 new super-blog
 
 cd super-blog
 
