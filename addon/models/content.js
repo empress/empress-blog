@@ -18,7 +18,7 @@ export default class ContentModel extends Model {
   @attr() _primaryTagId;
 
   @hasMany('tag', { async: false }) tags;
-  @hasMany('author', { async: true, inverse: 'posts' }) authors;
+  @hasMany('author', { async: false, inverse: 'posts' }) authors;
 
   get primaryTag() {
     return this.tags.find((t) => t.id === this._primaryTagId);
