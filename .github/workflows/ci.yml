@@ -18,16 +18,16 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: mansona/npm-lockfile-version@v1
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
-          cache: npm
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run test:ember
-      - run: npm run test:node
+          node-version: 20.x
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm run lint
+      - run: pnpm run test:ember
+      - run: pnpm run test:node
 
   floating:
     name: "Floating Dependencies"
@@ -35,27 +35,29 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
-          cache: npm
-      - run: npm install --no-package-lock
-      - run: npm run test:ember
-      - run: npm run test:node
+          node-version: 20.x
+          cache: pnpm
+      - run: pnpm install --no-lockfile
+      - run: pnpm run test:ember
+      - run: pnpm run test:node
 
   lighthouse:
     name: Lighthouse CI
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
-      - run: npm i -g @lhci/cli@0.5.x
-      - run: npm ci
-      - run: npm run build && lhci autorun
+          node-version: 20.x
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm run build && pnpm dlx @lhci/cli@0.5.x autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           LHCI_TOKEN: ${{ secrets.LHCI_TOKEN }}
@@ -86,11 +88,12 @@ jobs:
           - ember-release-no-deprecations
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16.x
-          cache: npm
-      - run: npm ci
+          node-version: 20.x
+          cache: pnpm
+      - run: pnpm install
       - name: Run Tests
-        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}
+        run: pnpm ember try:one ${{ matrix.try-scenario }}

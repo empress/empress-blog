@@ -89,7 +89,7 @@
     "ember-source": "~4.12.0",
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^5.7.2",
-    "ember-try": "^3.0.0",
+    "ember-try": "^4.0.0",
     "empress-blog-casper-template": "^4.3.0",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
@@ -105,7 +105,7 @@
     "prettier": "^2.8.7",
     "qunit": "^2.19.4",
     "qunit-dom": "^2.0.0",
-    "release-plan": "^0.8.0",
+    "release-plan": "^0.17.0",
     "stylelint": "^15.4.0",
     "stylelint-config-standard": "^32.0.0",
     "stylelint-prettier": "^3.0.0",
@@ -114,8 +114,14 @@
   "peerDependencies": {
     "ember-source": "^4.0.0"
   },
+  "packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd",
   "engines": {
     "node": "14.* || 16.* || >= 18"
+  },
+  "pnpm": {
+    "overrides": {
+      "sharp": "^0.34.4"
+    }
   },
   "ember": {
     "edition": "octane"

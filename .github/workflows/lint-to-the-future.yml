@@ -1,0 +1,17 @@
+name: Lint to the Future Dashboard
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: mansona/lttf-dashboard@v1
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
