@@ -13,14 +13,7 @@ export default class PostRoute extends Route {
       this.store.findAll('content'),
     ]);
 
-    let author;
-
-    if (post.authors.lenght === 1) {
-      author = post.authors[0];
-    }
-
     return {
-      author,
       post,
       posts,
     };
