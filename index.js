@@ -16,6 +16,7 @@ const AuthorsArray  = require('./lib/authors-array');
 const TagGenerator  = require('./lib/tag-generator');
 const ItemIncludePosts = require('./lib/item-include-posts');
 const AutomaticNewTag = require('./lib/automatic-new-tag');
+const { setConfig } = require('@warp-drive/core/build-config');
 
 module.exports = {
   name: require('./package').name,
@@ -24,6 +25,19 @@ module.exports = {
     return {
       'empress-blog:import': require('./lib/import.js'),
     }
+  },
+
+  included(app) {
+    // setConfig(app, __dirname, {
+    //   // this should be the most recent <major>.<minor> version for
+    //   // which all deprecations have been fully resolved
+    //   // and should be updated when that changes
+    //   compatWith: '4.12',
+    //   deprecations: {
+    //     // ... list individual deprecations that have been resolved here
+    //   }
+    // });
+
   },
 
   config() {

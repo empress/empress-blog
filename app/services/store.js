@@ -1,1 +1,1 @@
-export { default } from 'ember-data/store';
+export { default } from 'empress-blog/services/store';

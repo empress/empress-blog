@@ -36,6 +36,9 @@
   "dependencies": {
     "@babel/core": "^7.25.2",
     "@embroider/macros": "^1.19.2",
+    "@warp-drive/core": "5.8.0",
+    "@warp-drive/ember": "5.8.0",
+    "@warp-drive/json-api": "5.8.0",
     "broccoli-funnel": "^3.0.3",
     "broccoli-merge-trees": "^4.2.0",
     "broccoli-plugin": "^4.0.3",
@@ -66,6 +69,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.25.1",
     "@babel/plugin-proposal-decorators": "^7.24.7",
+    "@ember-data/debug": "5.8.0",
     "@ember/optional-features": "^2.1.0",
     "@ember/string": "^3.0.0",
     "@ember/test-helpers": "^3.3.1",
@@ -83,7 +87,6 @@
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
-    "ember-data": "~5.3.0",
     "ember-fetch": "^8.0.2",
     "ember-inflector": "^6.0.0",
     "ember-load-initializers": "^2.1.2",
