@@ -32,3 +32,17 @@ index 3f51a85dadff132e0e3f0b958ab1ab52b44faae2..7045375779e745fb48a8dc0d3257fcc2
 -        {{/get}}
 -
      </div>
+\ No newline at end of file
+diff --git a/app/templates/post.hbs b/app/templates/post.hbs
+index 0c0e9cc8e60a11bf0e76c26053017e62bcbab304..d964fae98b5e088e19b95c16fd1e8c47ab0cb860 100644
+--- a/app/templates/post.hbs
++++ b/app/templates/post.hbs
+@@ -58,7 +58,7 @@ into the {body} of the default.hbs template --}}
+                 {{#if (gt post.authors.length 1)}}
+                     <BylineMultiple @authors={{post.authors}} />
+                 {{else}}
+-                    <BylineSingle @author={{post.authors.firstObject}} />
++                    <BylineSingle @author={{get post.authors '0'}} />
+                 {{/if}}
+ 
+             </footer>
