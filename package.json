@@ -94,7 +94,7 @@
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^6.0.0",
     "ember-try": "^4.0.0",
-    "empress-blog-casper-template": "^4.3.0",
+    "empress-blog-casper-template": "^5.0.2",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-ember": "^12.2.1",
@@ -122,9 +122,6 @@
   "pnpm": {
     "overrides": {
       "sharp": "^0.34.4"
-    },
-    "patchedDependencies": {
-      "empress-blog-casper-template": "patches/empress-blog-casper-template.patch"
     }
   },
   "ember": {

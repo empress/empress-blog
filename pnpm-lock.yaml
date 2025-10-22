@@ -7,11 +7,6 @@ settings:
 overrides:
   sharp: ^0.34.4
 
-patchedDependencies:
-  empress-blog-casper-template:
-    hash: 75c77b51dc951bc17bd226259bd24b5aca57ee8246c011c95eff9690cbcea3e0
-    path: patches/empress-blog-casper-template.patch
-
 importers:
 
   .:
@@ -192,8 +187,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(encoding@0.1.13)
       empress-blog-casper-template:
-        specifier: ^4.3.0
-        version: 4.3.0(patch_hash=75c77b51dc951bc17bd226259bd24b5aca57ee8246c011c95eff9690cbcea3e0)(@babel/core@7.28.4)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)(webpack@5.102.1))(webpack@5.102.1)
+        specifier: ^5.0.2
+        version: 5.0.2(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)(webpack@5.102.1))(webpack@5.102.1)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -1057,8 +1052,8 @@ packages:
       '@embroider/webpack':
         optional: true
 
-  '@emnapi/runtime@1.5.0':
-    resolution: {integrity: sha512-97/BJ3iXHww3djw6hYIfErCZFee7qCtrneuLa20UXFCOTCfBM2cvQHjWJ2EG0s0MtdNwInarqCTz35i4wWXHsQ==}
+  '@emnapi/runtime@1.6.0':
+    resolution: {integrity: sha512-obtUmAHTMjll499P+D9A3axeJFlhdjOWdKUNs/U6QIGT7V5RjcUW1xToAzjvmgTSQhDbYn/NwfTRoJcQ2rNBxA==}
 
   '@eslint-community/eslint-utils@4.9.0':
     resolution: {integrity: sha512-ayVFHdtZ+hsq1t2Dy24wCmGXGe4q9Gu3smhLYALJrr473ZH27MsnSL+LKUlimp4BWJqMDMLmPpx/Q9R3OAlL4g==}
@@ -1421,6 +1416,9 @@ packages:
   '@npmcli/promise-spawn@8.0.3':
     resolution: {integrity: sha512-Yb00SWaL4F8w+K8YGhQ55+xE4RUNdMHV43WZGsiTM92gS+lC0mGsn7I4hLug7pbao035S6bj3Y3w0cUNGLfmkg==}
     engines: {node: ^18.17.0 || >=20.5.0}
+
+  '@nullvoxpopuli/ember-composable-helpers@5.3.0':
+    resolution: {integrity: sha512-pjuYVAxJJETaFFmDME9sPH++kSNcTJjxHqHUSJOwoYvxSRBHIysJbCFD/CHQjJtbI5D4pVouYU80ugmyGrZoFA==}
 
   '@octokit/auth-token@5.1.2':
     resolution: {integrity: sha512-JcQDsBdg49Yky2w2ld20IHAlwr8d/d8N6NiOXbtuoPCqzbsiJgF633mVUw3x4mo0H5ypataQIX7SFu3yy44Mpw==}
@@ -2432,10 +2430,6 @@ packages:
   broccoli-funnel-reducer@1.0.0:
     resolution: {integrity: sha512-SaOCEdh+wnt2jFUV2Qb32m7LXyElvFwW3NKNaEJyi5PGQNwxfqpkc0KI6AbQANKgdj/40U2UC0WuGThFwuEUaA==}
 
-  broccoli-funnel@2.0.1:
-    resolution: {integrity: sha512-C8Lnp9TVsSSiZMGEF16C0dCiNg2oJqUKwuZ1K4kVC6qRPG/2Cj/rtB5kRCC9qEbwqhX71bDbfHROx0L3J7zXQg==}
-    engines: {node: ^4.5 || 6.* || >= 7.*}
-
   broccoli-funnel@2.0.2:
     resolution: {integrity: sha512-/vDTqtv7ipjEZQOVqO4vGDVAOZyuYzQ/EgGoyewfOgh1M7IQAToBKZI0oAQPgMBeFPPlIbfMuAngk+ohPBuaHQ==}
     engines: {node: ^4.5 || 6.* || >= 7.*}
@@ -3184,6 +3178,9 @@ packages:
   content-tag@2.0.3:
     resolution: {integrity: sha512-htLIdtfhhKW2fHlFLnZH7GFzHSdSpHhDLrWVswkNiiPMZ5uXq5JfrGboQKFhNQuAAFF8VNB2EYUj3MsdJrKKpg==}
 
+  content-tag@3.1.3:
+    resolution: {integrity: sha512-4Kiv9mEroxuMXfWUNUHcljVJgxThCNk7eEswdHMXdzJnkBBaYDqDwzHkoh3F74JJhfU3taJOsgpR6oEGIDg17g==}
+
   content-type@1.0.5:
     resolution: {integrity: sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==}
     engines: {node: '>= 0.6'}
@@ -3819,10 +3816,6 @@ packages:
     resolution: {integrity: sha512-BtkjulweiXo9c3yVWrtexw2dTmBrvavD/xixNC6TKOBdrixUwU+6nuOO9dufDWsMxoid7MvtmDpzc9+mE8PdaA==}
     engines: {node: 10.* || >= 12.*}
 
-  ember-composable-helpers@4.5.0:
-    resolution: {integrity: sha512-XjpDLyVPsLCy6kd5dIxZonOECCO6AA5sY5Hr6tYUbJg3s5ghFAiFWaNcYraYC+fL2yPJQAswwpfwGlQORUJZkw==}
-    engines: {node: 10.* || >= 12.*}
-
   ember-data@5.3.13:
     resolution: {integrity: sha512-Jke7Bx45GDrq72Co/eHtOb6wfeyMUAmxKaRhibVrEQqy9jXwFWPKIcPwF20v7oWkO/bBEK2BDpM5enLDiVEmsQ==}
     engines: {node: '>= 18.20.8'}
@@ -3917,6 +3910,9 @@ packages:
   ember-rfc176-data@0.3.18:
     resolution: {integrity: sha512-JtuLoYGSjay1W3MQAxt3eINWXNYYQliK90tLwtb8aeCuQK8zKGCRbBodVIrkcTqshULMnRuTOS6t1P7oQk3g6Q==}
 
+  ember-route-template@1.0.3:
+    resolution: {integrity: sha512-p//Nk4g4Wu9F8cZdjB69rKxTRi6RRW32a8K5sYsi5cofTcJtPBXRWUXWpQEjJX6qcucgxooQwEm9+7MOy4lwNw==}
+
   ember-router-generator@2.0.0:
     resolution: {integrity: sha512-89oVHVJwmLDvGvAUWgS87KpBoRhy3aZ6U0Ql6HOmU4TrPkyaa8pM0W81wj9cIwjYprcQtN9EwzZMHnq46+oUyw==}
     engines: {node: 8.* || 10.* || >= 12}
@@ -3943,6 +3939,10 @@ packages:
   ember-template-imports@3.4.2:
     resolution: {integrity: sha512-OS8TUVG2kQYYwP3netunLVfeijPoOKIs1SvPQRTNOQX4Pu8xGGBEZmrv0U1YTnQn12Eg+p6w/0UdGbUnITjyzw==}
     engines: {node: 12.* || >= 14}
+
+  ember-template-imports@4.3.0:
+    resolution: {integrity: sha512-jZ5D6KLKU8up/AynZltmKh4lkXBPgTGSPgomprI/55XvIVqn42UNUpEz7ra/mO3QiGODDZOUesbggPe49i38sQ==}
+    engines: {node: 16.* || >= 18}
 
   ember-template-lint@6.1.0:
     resolution: {integrity: sha512-UyzLPcyneG3mnbBfewyYIlV7fy6JKHQVAJy5a9+URdJKkZKN+3vQkQzIIlsz6dP/GpoXVB+datns5HlfMfliSA==}
@@ -3979,9 +3979,9 @@ packages:
     resolution: {integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==}
     engines: {node: '>= 4'}
 
-  empress-blog-casper-template@4.3.0:
-    resolution: {integrity: sha512-TS3I1+Y5moEScfhZuPMcW4Ha1Hp9A1JZc/84jcoHL9XZfAlKB4tGbd38N5dtJnZ3GhF38xvikAy56bC50D1R/w==}
-    engines: {node: 12.* || 14.* || >= 16}
+  empress-blog-casper-template@5.0.2:
+    resolution: {integrity: sha512-okSRRqtOaFok3x8TaVm60UrLDi78l/y79yMWRyabhdpKQLCYRNDTBUuAbLhmp6RKm4g3vXNXB/g0mDmooY2lOA==}
+    engines: {node: '>= 18'}
 
   empress-blog-ghost-helpers@1.2.0:
     resolution: {integrity: sha512-fTBY7LCWFgyK3cF2W1oMzJLmz2v7LHVZ0HFaA66XWjQYaf7CbrDPBfPSz/lPwXeodlAsLyMiWotT7regUKAFbw==}
@@ -8087,8 +8087,8 @@ packages:
   tiny-lr@2.0.0:
     resolution: {integrity: sha512-f6nh0VMRvhGx4KCeK1lQ/jaL0Zdb5WdR+Jk8q9OSUQnaSDxAEGH1fgqLZ+cMl5EW3F2MGnCsalBO1IsnnogW1Q==}
 
-  tlds@1.260.0:
-    resolution: {integrity: sha512-78+28EWBhCEE7qlyaHA9OR3IPvbCLiDh3Ckla593TksfFc9vfTsgvH7eS+dr3o9qr31gwGbogcI16yN91PoRjQ==}
+  tlds@1.261.0:
+    resolution: {integrity: sha512-QXqwfEl9ddlGBaRFXIvNKK6OhipSiLXuRuLJX5DErz0o0Q0rYxulWLdFryTkV5PkdZct5iMInwYEGe/eR++1AA==}
     hasBin: true
 
   tmp@0.0.28:
@@ -9844,7 +9844,7 @@ snapshots:
       lodash: 4.17.21
       resolve: 1.22.10
 
-  '@emnapi/runtime@1.5.0':
+  '@emnapi/runtime@1.6.0':
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -10192,7 +10192,7 @@ snapshots:
 
   '@img/sharp-wasm32@0.34.4':
     dependencies:
-      '@emnapi/runtime': 1.5.0
+      '@emnapi/runtime': 1.6.0
     optional: true
 
   '@img/sharp-win32-arm64@0.34.4':
@@ -10321,6 +10321,14 @@ snapshots:
   '@npmcli/promise-spawn@8.0.3':
     dependencies:
       which: 5.0.0
+
+  '@nullvoxpopuli/ember-composable-helpers@5.3.0(@babel/core@7.28.4)':
+    dependencies:
+      '@embroider/addon-shim': 1.10.0
+      decorator-transforms: 2.3.0(@babel/core@7.28.4)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
 
   '@octokit/auth-token@5.1.2': {}
 
@@ -11617,24 +11625,6 @@ snapshots:
 
   broccoli-funnel-reducer@1.0.0: {}
 
-  broccoli-funnel@2.0.1:
-    dependencies:
-      array-equal: 1.0.2
-      blank-object: 1.0.2
-      broccoli-plugin: 1.3.1
-      debug: 2.6.9
-      fast-ordered-set: 1.0.3
-      fs-tree-diff: 0.5.9
-      heimdalljs: 0.2.6
-      minimatch: 3.1.2
-      mkdirp: 0.5.6
-      path-posix: 1.0.0
-      rimraf: 2.7.1
-      symlink-or-copy: 1.3.1
-      walk-sync: 0.3.4
-    transitivePeerDependencies:
-      - supports-color
-
   broccoli-funnel@2.0.2:
     dependencies:
       array-equal: 1.0.2
@@ -12622,6 +12612,8 @@ snapshots:
 
   content-tag@2.0.3: {}
 
+  content-tag@3.1.3: {}
+
   content-type@1.0.5: {}
 
   continuable-cache@0.3.1: {}
@@ -12922,7 +12914,7 @@ snapshots:
 
   debug@3.2.6(supports-color@6.0.0):
     dependencies:
-      ms: 2.1.1
+      ms: 2.1.3
     optionalDependencies:
       supports-color: 6.0.0
 
@@ -13739,15 +13731,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-composable-helpers@4.5.0:
-    dependencies:
-      '@babel/core': 7.28.4
-      broccoli-funnel: 2.0.1
-      ember-cli-babel: 7.26.11
-      resolve: 1.22.10
-    transitivePeerDependencies:
-      - supports-color
-
   ember-data@5.3.13(@ember/string@3.1.1)(@ember/test-helpers@3.3.1(@babel/core@7.28.4)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)(webpack@5.102.1))(webpack@5.102.1))(@ember/test-waiters@3.1.0)(ember-inflector@6.0.0(@babel/core@7.28.4))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)(webpack@5.102.1))(qunit@2.24.2):
     dependencies:
       '@ember-data/adapter': 5.3.13(27338368bdb293b871b6ab88ec7e02ea)
@@ -13957,6 +13940,12 @@ snapshots:
 
   ember-rfc176-data@0.3.18: {}
 
+  ember-route-template@1.0.3:
+    dependencies:
+      '@embroider/addon-shim': 1.10.0
+    transitivePeerDependencies:
+      - supports-color
+
   ember-router-generator@2.0.0:
     dependencies:
       '@babel/parser': 7.28.4
@@ -14052,6 +14041,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  ember-template-imports@4.3.0:
+    dependencies:
+      broccoli-stew: 3.0.0
+      content-tag: 3.1.3
+      ember-cli-version-checker: 5.1.2
+    transitivePeerDependencies:
+      - supports-color
+
   ember-template-lint@6.1.0:
     dependencies:
       '@lint-todo/utils': 13.1.1
@@ -14133,22 +14130,25 @@ snapshots:
 
   emojis-list@3.0.0: {}
 
-  empress-blog-casper-template@4.3.0(patch_hash=75c77b51dc951bc17bd226259bd24b5aca57ee8246c011c95eff9690cbcea3e0)(@babel/core@7.28.4)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)(webpack@5.102.1))(webpack@5.102.1):
+  empress-blog-casper-template@5.0.2(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)(webpack@5.102.1))(webpack@5.102.1):
     dependencies:
+      '@babel/core': 7.28.4
+      '@nullvoxpopuli/ember-composable-helpers': 5.3.0(@babel/core@7.28.4)
       autoprefixer: 9.8.8
       cssnano: 4.1.11
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
+      ember-auto-import: 2.11.1(webpack@5.102.1)
+      ember-cli-babel: 8.2.0(@babel/core@7.28.4)
+      ember-cli-htmlbars: 6.3.0
       ember-cli-postcss: 6.0.2
-      ember-composable-helpers: 4.5.0
       ember-responsive-image: 3.4.0(@babel/core@7.28.4)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)(webpack@5.102.1))(webpack@5.102.1)
+      ember-route-template: 1.0.3
+      ember-template-imports: 4.3.0
       empress-blog-ghost-helpers: 1.2.0
       empress-blueprint-helpers: 1.2.1
       postcss-color-function: 4.1.0
       postcss-custom-properties: 9.2.0
       postcss-easy-import: 3.0.0
     transitivePeerDependencies:
-      - '@babel/core'
       - '@glint/template'
       - ember-source
       - rollup
@@ -15247,7 +15247,7 @@ snapshots:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.4
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
 
@@ -16528,7 +16528,7 @@ snapshots:
 
   md5.js@1.3.5:
     dependencies:
-      hash-base: 3.0.5
+      hash-base: 3.1.2
       inherits: 2.0.4
       safe-buffer: 5.2.1
 
@@ -19177,7 +19177,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  tlds@1.260.0: {}
+  tlds@1.261.0: {}
 
   tmp@0.0.28:
     dependencies:
@@ -19447,7 +19447,7 @@ snapshots:
   url-regex@5.0.0:
     dependencies:
       ip-regex: 4.3.0
-      tlds: 1.260.0
+      tlds: 1.261.0
 
   url@0.11.4:
     dependencies:
