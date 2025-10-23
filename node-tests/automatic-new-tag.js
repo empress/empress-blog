@@ -88,7 +88,7 @@ tags:
   - new
 authors:
   - ghost
-date: 'Tue Jun 12 2018 17:50:59 GMT+0100 (IST)'
+date: Tue Jun 12 2018 17:50:59 GMT+0100 (IST)
 ---
 # Hello world`)
     // oldest file does not have new tag
@@ -97,7 +97,7 @@ tags:
   - a-tag-of-sorts
 authors:
   - ghost
-date: 'Tue Jun 09 2018 17:50:59 GMT+0100 (IST)'
+date: Tue Jun 09 2018 17:50:59 GMT+0100 (IST)
 ---
 # Hello world`)
 
@@ -108,7 +108,7 @@ tags:
   - new
 authors:
   - ghost
-date: 'Tue Jun 13 2018 17:50:59 GMT+0100 (IST)'
+date: Tue Jun 13 2018 17:50:59 GMT+0100 (IST)
 ---
 # Hello world`)
   })

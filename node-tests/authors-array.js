@@ -24,9 +24,9 @@ title: Setting up your own Ghost theme
 image: /images/design.jpg
 imageMeta:
   attribution: face
-  attributionLink: 'https://www.emberjs.com/face'
+  attributionLink: https://www.emberjs.com/face
 featured: true
-date: 'Tue Jun 12 2018 17:49:21 GMT+0100 (IST)'
+date: Tue Jun 12 2018 17:49:21 GMT+0100 (IST)
 tags:
   - getting-started
 authors:
@@ -44,11 +44,11 @@ title: Setting up your own Ghost theme
 image: /images/design.jpg
 imageMeta:
   attribution: face
-  attributionLink: 'https://www.emberjs.com/face'
+  attributionLink: https://www.emberjs.com/face
 featured: true
 authors:
   - ghost
-date: 'Tue Jun 12 2018 17:49:21 GMT+0100 (IST)'
+date: Tue Jun 12 2018 17:49:21 GMT+0100 (IST)
 tags:
   - getting-started
 ---
