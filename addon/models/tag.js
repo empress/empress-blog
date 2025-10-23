@@ -12,6 +12,6 @@ export default class TagModel extends Model {
   // see: https://discuss.emberjs.com/t/manual-pagination-in-ember-data-relationships/18087
   @attr() _postIds;
 
-  @hasMany('content', { polymorphic: true, async: true, inverse: 'tags' })
+  @hasMany('content', { polymorphic: true, async: false, inverse: 'tags' })
   posts;
 }

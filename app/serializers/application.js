@@ -1,6 +1,7 @@
-/* eslint-disable ember/no-classic-classes, prettier/prettier, ember/use-ember-data-rfc-395-imports */
-import DS from 'ember-data';
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 
-export default DS.JSONAPISerializer.extend({
-  keyForAttribute(key) { return key; }
-});
+export default class extends JSONAPISerializer {
+  keyForAttribute(key) {
+    return key;
+  }
+}

@@ -1,0 +1,48 @@
+diff --git a/addon/controllers/error.js b/addon/controllers/error.js
+index 3f70d0bd8cd60a053091fba6127e1e6a74bfb998..9c310d7414b11ba688fa9ef7b80a02641f349b09 100644
+--- a/addon/controllers/error.js
++++ b/addon/controllers/error.js
+@@ -6,6 +6,6 @@ import { computed } from '@ember/object';
+ export default Controller.extend({
+   blog: service(),
+   error: computed('model.errors.[]', function() {
+-    return this.model.errors[0];
++    return this.model?.errors?.[0] ?? this.model;
+   })
+ });
+diff --git a/app/templates/error.hbs b/app/templates/error.hbs
+index 3f51a85dadff132e0e3f0b958ab1ab52b44faae2..7045375779e745fb48a8dc0d3257fcc2160ae15a 100644
+--- a/app/templates/error.hbs
++++ b/app/templates/error.hbs
+@@ -23,17 +23,4 @@
+                 </section>
+             </div>
+         </main>
+-
+-        {{#get "posts" limit="3"}}
+-        <aside class="outer">
+-            <div class="inner">
+-                <div class="post-feed">
+-                    {{#each posts as |post|}}
+-                        <PostCard @post={{post}} />
+-                    {{/each}}
+-                </div>
+-            </div>
+-        </aside>
+-        {{/get}}
+-
+     </div>
+\ No newline at end of file
+diff --git a/app/templates/post.hbs b/app/templates/post.hbs
+index 0c0e9cc8e60a11bf0e76c26053017e62bcbab304..d964fae98b5e088e19b95c16fd1e8c47ab0cb860 100644
+--- a/app/templates/post.hbs
++++ b/app/templates/post.hbs
+@@ -58,7 +58,7 @@ into the {body} of the default.hbs template --}}
+                 {{#if (gt post.authors.length 1)}}
+                     <BylineMultiple @authors={{post.authors}} />
+                 {{else}}
+-                    <BylineSingle @author={{post.authors.firstObject}} />
++                    <BylineSingle @author={{get post.authors '0'}} />
+                 {{/if}}
+ 
+             </footer>

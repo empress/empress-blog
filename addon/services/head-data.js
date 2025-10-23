@@ -43,7 +43,7 @@ export default class HeadDataService extends HeadData {
 
   @computed('currentRouteMeta.authors.[]')
   get author() {
-    return this.currentRouteMeta.authors?.firstObject;
+    return this.currentRouteMeta.authors?.firstObject ?? this.currentRouteMeta.authors?.[0];
   }
 
   @computed('currentRouteMeta')

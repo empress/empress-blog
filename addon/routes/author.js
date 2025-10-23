@@ -1,16 +1,26 @@
-/* eslint-disable ember/no-classic-classes, prettier/prettier */
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
-export default Route.extend({
-  classNames: ["author-template"],
+export default class AuthorRoute extends Route {
+  classNames = ['author-template'];
 
-  store: service(),
+  @service
+  store;
 
-  model(params) {
-    // load content first for ember-data autopopulation
-    return this.store.findAll('content').then(() => {
-      return this.store.findRecord('author', params.id)
+  async model(params) {
+    // load content first for ember-data autopopulation - this is because author.posts is sync
+    await this.store.findAll('content');
+    const author = await this.store.peekRecord('author', params.id);
+
+    // fix issue with downstream not being able to deal with the posts proxy
+    return new Proxy(author, {
+      get(target, prop) {
+        if (prop === 'posts') {
+          return target.posts.content;
+        }
+
+        return target[prop];
+      },
     });
-  },
-});
+  }
+}

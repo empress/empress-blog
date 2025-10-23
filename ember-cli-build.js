@@ -8,6 +8,11 @@ module.exports = function (defaults) {
     fingerprint: {
       extensions: ['js', 'css', 'map']
     },
+    emberData: {
+      deprecations: {
+        DEPRECATE_STORE_EXTENDS_EMBER_OBJECT: false
+      }
+    }
   });
 
   /*
