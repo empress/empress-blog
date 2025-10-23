@@ -2,6 +2,17 @@
 
 ## Release (2025-10-23)
 
+* empress-blog 5.0.1 (patch)
+
+#### :bug: Bug Fix
+* `empress-blog`
+  * [#199](https://github.com/empress/empress-blog/pull/199) update npm on publish job ([@mansona](https://github.com/mansona))
+
+#### Committers: 1
+- Chris Manson ([@mansona](https://github.com/mansona))
+
+## Release (2025-10-23)
+
 * empress-blog 5.0.0 (major)
 
 #### :boom: Breaking Change
