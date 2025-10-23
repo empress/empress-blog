@@ -93,7 +93,7 @@
     "ember-source-channel-url": "^3.0.0",
     "ember-template-lint": "^6.0.0",
     "ember-try": "^4.0.0",
-    "empress-blog-casper-template": "^5.0.2",
+    "empress-blog-casper-template": "^5.0.3",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-ember": "^12.2.1",
