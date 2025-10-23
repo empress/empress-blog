@@ -1,5 +1,35 @@
 # Changelog
 
+## Release (2025-10-23)
+
+* empress-blog 5.0.0 (major)
+
+#### :boom: Breaking Change
+* `empress-blog`
+  * [#196](https://github.com/empress/empress-blog/pull/196) drop ember-cli-showdown dependency ([@mansona](https://github.com/mansona))
+  * [#195](https://github.com/empress/empress-blog/pull/195) Drop support for Ember < 3.28 ([@mansona](https://github.com/mansona))
+  * [#193](https://github.com/empress/empress-blog/pull/193) swap to pnpm and drop support for node < 20 ([@mansona](https://github.com/mansona))
+  * [#177](https://github.com/empress/empress-blog/pull/177) Breaking: drop support for Node < 16 ([@mansona](https://github.com/mansona))
+
+#### :rocket: Enhancement
+* `empress-blog`
+  * [#197](https://github.com/empress/empress-blog/pull/197) update dependencies ([@mansona](https://github.com/mansona))
+  * [#180](https://github.com/empress/empress-blog/pull/180) update all dependencies ([@mansona](https://github.com/mansona))
+
+#### :house: Internal
+* `empress-blog`
+  * [#198](https://github.com/empress/empress-blog/pull/198) prepare to release with OIDC ([@mansona](https://github.com/mansona))
+  * [#194](https://github.com/empress/empress-blog/pull/194) Update to 5.12 with ember-cli-update ([@mansona](https://github.com/mansona))
+  * [#184](https://github.com/empress/empress-blog/pull/184) setup release-plan ([@mansona](https://github.com/mansona))
+  * [#179](https://github.com/empress/empress-blog/pull/179) update to v4.12 with ember-cli-update ([@mansona](https://github.com/mansona))
+  * [#178](https://github.com/empress/empress-blog/pull/178) Update to 4.8 with ember-cli-update ([@mansona](https://github.com/mansona))
+  * [#176](https://github.com/empress/empress-blog/pull/176) Update ember to v4.4 with ember-cli-update ([@mansona](https://github.com/mansona))
+  * [#157](https://github.com/empress/empress-blog/pull/157) [DOC] - fix some readme typos ([@sbatson5](https://github.com/sbatson5))
+
+#### Committers: 2
+- Chris Manson ([@mansona](https://github.com/mansona))
+- Scott Batson ([@sbatson5](https://github.com/sbatson5))
+
 4.1.0 / 2022-01-09
 ==================
 
