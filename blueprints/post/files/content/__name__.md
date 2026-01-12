@@ -9,6 +9,7 @@ authors:
   - <%= author %>
 date: <%= date %>
 tags:
+meta:
 ---
 
 Good luck on your new post!
